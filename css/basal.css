@@ -1,0 +1,63 @@
+/* button grid stuff */
+
+.button {
+    font-family:var(--mono-font-stack); 
+    font-size: var(--global-font-size);
+    border-radius: 4px;
+}
+
+.button:hover {
+    background-color: var(--primary-color);
+    color: var(--invert-font-color); 
+    cursor: pointer; 
+}
+
+.button1 {
+    background-color: rgb(152, 241, 210);
+}
+
+.button2 {
+    background-color: rgb(241, 152, 186);
+}
+
+.button3 {
+    background-color: rgb(152, 208, 241);
+}
+
+.button4 {
+    background-color: rgb(241, 225, 152);
+}
+
+.button5 {
+    background-color: rgb(241, 152, 152);
+}
+
+.button6 {
+    background-color: rgb(152, 239, 241);
+}
+
+.button7 {
+    background-color: rgb(241, 167, 152);
+}
+
+.button8 {
+    background-color: rgb(152, 173, 241);
+}
+
+/* hover over change text stuff */
+
+.fakelink {
+    color: var(--other-color); 
+}
+
+.fakelink:hover {
+    background-color: var(--other-color);
+    color: var(--invert-font-color); 
+    cursor: pointer; 
+}
+
+.imglink:hover {
+    background-color: rgba(0, 0, 0, 0)!important;
+    color: var(--invert-font-color); 
+    cursor: pointer; 
+}

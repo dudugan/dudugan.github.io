@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/terminal.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/console.css">
+        <link rel="stylesheet" href="css/basal.css">
+        <title>projects</title>
+    </head>
+    <body class="terminal">
+        <div class="container">
+            <div class="terminal-nav">
+                <header class="terminal-logo">
+                    <div class="logo terminal-prompt">
+                    <a href="index.html" class="no-style site-name">dudugan</a>:~# \projects_
+                    </div>
+                </header>
+                <nav class="terminal-menu">
+                    <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                        <li>
+                            \projects_
+                            <a href="affiliations.html">\affiliations_ </a>
+                            <a href="favorites.html">\favorites_ </a>
+                            <a href="https://dudugan.substack.com/" target="_blank">\blog_ </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    
+        <div class="container slide" >
+            <h1>Solo Projects</h1>
+
+            <p>I've self-published 
+                <a class="fakelink"
+                href="https://www.amazon.com/Rahuas-Dream-Diary-David-Nisui/dp/B0BHGBG7FN" target="_blank"
+                onmouseover="changeInner(this, 'Rahua\'s Dream Diary')" 
+                onmouseout="changeInner(this, 'a novella on Amazon')">
+                a novella on Amazon</a>, 
+                designed and printed
+                <a class = "fakelink"
+                href="https://dudugan.substack.com/p/boa-trees" target="_blank"
+                onmouseover="changeInner(this, 'two * nine Boa Trees')"
+                onmouseout="changeInner(this, 'a poetry compilation')">
+                a poetry compilation</a>, 
+                and written countless
+                <a class = "fakelink"
+                href="https://dudugan.substack.com/s/fiction?sort=top" target="_blank"
+                onmouseover="changeInner(this, 'tall landings')"
+                onmouseout="changeInner(this, 'short stories')">
+                short stories</a>. 
+                I've also created two
+                <a class = "fakelink"
+                href="https://dudugan.itch.io" target="_blank"
+                onmouseover="changeInner(this, 'itsybitsy experiments')"
+                onmouseout="changeInner(this, 'narrative video games')">
+                narrative video games</a> 
+                for game jams. 
+            </p>
+
+            <p>In high school I conducted a descriptive study on discontinuous phrasal verbs
+                (<em>I turned the lights on</em> vs. <em>I turned on the lights</em>),
+                and I'm 
+                <a class = "fakelink" 
+                href = "google form to fill out to give me judgements?" target="_blank"
+                onmouseover="changeInner(this, 'in need of judgements for')"
+                onmouseout="changeInner(this, 'in the process of editing')">
+                in the process of editing</a>
+                a to-be-published syntactic analysis of the 
+                <em>it's giving</em> and <em>just screams</em> constructions for the 
+                <a href= "https://ygdp.yale.edu/" target="_blank">Yale Grammatical Diversity project</a>. 
+                I also recently wrote a paper on creating n-gram models and recurrent neural networks
+                for data-sparse languages (I used a conlang of mine :). 
+            </p>
+            <p>Also, I just release (to my knowledge) the first ever <a class = "fakelink" href = "https://www.youtube.com/watch?v=oxObhOQ1SCM" target="_blank"
+                onmouseover="changeInner(this, 'Akkadian music video')"
+                onmouseout="changeInner(this, 'Old Babylonian rap')">Old Babylonian rap</a>. </p>
+          
+            <div class="footer">
+                Copyright 2024 david gan. css inspired by <a href = "https://github.com/mrmierzejewski/hugo-theme-console/" target="_blank">Console Theme</a>. 
+            </div>
+        </div>
+
+
+        <script>
+            function changeInner(element, text) {
+                element.innerHTML = text;
+            }
+        </script>
+      </body>
+</html>
