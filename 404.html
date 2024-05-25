@@ -1,4 +1,46 @@
-{{ define "main" }}
-<h1>you entered the wrong url, sorry :&#40;</h1>
-<p><a href="{{ .Site.BaseURL }}">go back home</a>.</p>
-{{ end }}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/terminal.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/console.css">
+        <link rel="stylesheet" href="css/basal.css">
+        <title>index</title>
+    </head>
+    <body class="terminal">
+        <div class="container">
+            <div class="terminal-nav">
+                <header class="terminal-logo">
+                    <div class="logo terminal-prompt">
+                    <a href="index.html" class="no-style site-name">dudugan</a>:~#
+                    </div>
+                </header>
+                <nav class="terminal-menu">
+                    <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                        <li>
+                            <a href="projects.html">\projects_</a>
+                            <a href="affiliations.html">\affiliations_ </a>
+                            <a href="favorites.html">\favorites_ </a>
+                            <a href="https://dudugan.substack.com/" target="_blank">\blog_ </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    
+        <div class="container slide" >
+            <h1>Oops!</h1>
+
+            <p>I haven't made that page yet :(. Sounds like it's time to go back 
+                <a href = "https://www.colang2024.org/" target="_blank">home</a>. 
+            </p>
+          
+            <div class="footer">
+                Copyright 2024 david gan. css inspired by <a href = "https://github.com/mrmierzejewski/hugo-theme-console/" target="_blank">Console Theme</a>. 
+            </div>
+        </div>
+      </body>
+</html>
