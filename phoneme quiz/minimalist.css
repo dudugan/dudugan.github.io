@@ -1,0 +1,124 @@
+#readypage { display: flex; }
+#quizpage { display: none; }
+#resultspage { display: none; }
+
+:root {
+    --pagewidth: 44vw;
+}
+
+html {
+    font-size: 1vw;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: white;
+    position: relative;
+    height: 100vh; 
+    cursor: default;
+    font-size: 1.5rem;
+}
+
+.page {
+    font-size: 1rem;
+    padding: 10px 10px;
+    background-position: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    border: black 2px;
+    border-style: dashed;
+    padding: 0px 20px; 
+}
+
+h1 {
+    font-size: 4rem;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    margin-bottom: 4px;
+}
+
+header p {
+    text-align: center;
+}
+
+.imgBox {
+    margin-top: 20px; 
+}
+
+.imgBox img {
+    width: calc(var(--pagewidth) - 20px);
+}
+
+button {
+    display: block; 
+    margin-bottom: 15px;
+    background-color: rgb(227, 240, 246);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+}
+
+#questionText {
+    max-width: var(--pagewidth);
+    font-size: 1.5rem;
+}
+
+#choicebox {
+    border-top: black solid 2px;
+    border-bottom: 2px solid black;
+    padding-top: 10px;
+    width: var(--pagewidth);
+}
+
+#readypage {
+    width: var(--pagewidth);
+    border-bottom: 2px solid black;
+}
+
+#resultspage {
+    width: var(--pagewidth);
+    font-size: 2rem;
+    border-bottom: 2px solid black;
+}
+
+.choice {
+    background-color: white;
+    border: none; 
+    font-family: 'Times New Roman', Times, serif;
+    justify-self: right;
+    text-align: right;
+    padding-left: 3rem; 
+    font-size: 1.5rem;
+}
+.choice:hover {
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.footer {
+    width: var(--pagewidth);
+    display: block; 
+    bottom: 5%;
+}

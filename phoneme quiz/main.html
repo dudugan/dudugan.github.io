@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="shortcut icon" type="image/png" href="imgs/predator.png"> <!--favicon-->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="minimalist.css">
+        <title>What Phoneme Are You?</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>The Phoneme Quiz</h1>
+            <p>wət fonim ɑɹ ju?</p>
+        </div>
+        <div class="imgBox">
+            <img id="questionImage"
+            style="display:none">
+        </div>
+        <div class="page" id="readypage">
+            <button type="button" onclick="startQuiz()">
+                Start Quiz</button>
+        </div>
+        <div class="page" id="quizpage">
+            <p id="questionText"></p>
+            <div id="choicebox">
+                <button type="button" class="choice" id="button1" onclick="answer('b1'); nextpage()"></button>
+                <button type="button" class="choice" id="button2" onclick="answer('b2'); nextpage()"></button>
+                <button type="button" class="choice" id="button3" onclick="answer('b3'); nextpage()"></button>
+                <button type="button" class="choice" id="button4" onclick="answer('b4'); nextpage()"></button>
+            </div>
+            <p id="currentValues"></p> 
+            <!-- to delete later -->
+        </div>
+        <div class="page" id="resultspage">
+            <p>Your MBTI type is <span id="mbtiprinted"></span>.</p>
+        </div>
+        <div class="footer">
+            <p><i>an mbti quiz for linguists, 
+                using 8 cognitive functions, 
+                <br>inspired by Cosmos Persona, Cake resume, 
+                <br>the Vegetable Quiz, etc. 
+                <br>made by <b><a href="https://dudugan.github.io/">david g@n</a></b></i>. 
+            </p>
+        </div>
+
+        <script src="newScript.js"></script>
+      </body>
+</html>
