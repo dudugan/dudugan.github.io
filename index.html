@@ -73,7 +73,8 @@
                 <button type = "button" class = "button button2" onclick="openlink('www.youtube.com/@simulanger')">YouTube</button>
                 <button type = "button" class = "button button3" onclick="openlink('letterboxd.com/dudushi/')">Letterboxd</button>
                 <button type = "button" class = "button button4" onclick="openlink('www.goodreads.com/user/show/147256252')">Goodreads</button>
-                <button type = "button" class = "button button5" onclick="openlink('www.dudugan.github.io/resume.pdf')">Resume</button>
+                <button type = "button" class = "button button5" onclick="downloadFile('/resume.pdf', 'David_Garsten_Resume.pdf')">Resume</button>
+                
                 <button type = "button" class = "button button6" onclick="openlink('www.zotero.org/dudugan/library')">Zotero</button>
                 <button type = "button" class = "button button7" onclick="openlink('www.instagram.com/invites/contact/?i=1haytr2eku14k&utm_content=83g1ns3')">Instagram</button>
                 <button type = "button" class = "button button8" onclick="emailme()">Email Me</button>
@@ -87,6 +88,15 @@
                 function openlink(link) {
                     url = 'https://' + link; 
                     window.open(url, '_blank'); 
+                }
+
+                function downloadFile(relativePath, filename) {
+                    const link = document.createElement('a');
+                    link.href = relativePath; 
+                    link.download = filename || '';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
                 }
 
                 function emailme() {
