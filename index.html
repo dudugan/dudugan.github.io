@@ -34,7 +34,7 @@
         </div>
     
         <div class="container slide" >
-            <h1>david g@n</h1>
+            <h1 id="title">david g<span id="a" class="a">a</span>n</h1>
             <p>
                 Hi! I'm a linguist, writer, composer, and programmer interested in the four As:
                 animals, aliens, artificial intelligence, and ancient people. I love to tell stories
@@ -78,6 +78,8 @@
                 <button type = "button" class = "button button8" onclick="emailme()">Email Me</button>
             </div>
 
+            <div class="button" style="padding-top: 10px; font-size: 0.8em;">P.S. Hover over my name to stop the animation!</div>
+
             <div class="footer">
                 Copyright 2024 david g@n. css inspired by <a href = "https://github.com/mrmierzejewski/hugo-theme-console/" target="_blank">Console Theme</a>. 
             </div>
@@ -100,6 +102,82 @@
                 function emailme() {
                     window.open('mailto:david.garsten@yale.edu'); 
                 }
+            </script>
+            <script>
+                // COOL NAME THING
+                const title = document.getElementById('title');
+                const aSpan = document.getElementById('a');
+                let interval = null;
+                let paused = false;
+                let timeoutId = null;
+                let maxLetters = 100;
+
+                function updateMaxLetters() {
+                    // 1 letter / ~20px width, 200 cap
+                    maxLetters = Math.min(Math.floor(window.innerWidth / 40), 200);
+                }
+                updateMaxLetters();
+                window.addEventListener('resize', updateMaxLetters);
+
+                // const pattern = [1, 5, 20, 40, 10, 50, 7];
+                let i = 0;
+
+                function randomLetters(length) {
+                const letters = 'aəɐɑɘɛɜœβɓʙɕçbcðɖɗdeɻɽɟɺfɣɠɢgħɦɨıɪʑʝȷʁʀɞʜʎɭɫʟæɲɱʛhijklmŋɴɳɔɒɵɸɰɾɚɹ˞ʃʂθʈʊʉɤʋⱱʌʟʍɯɝɥʏχʒʐnopqrstuvwxyz';
+                let result = '';
+                for (let i = 0; i < length; i++) {
+                    result += letters[Math.floor(Math.random() * letters.length)];
+                }
+                return result;
+                }
+
+                function updateA() {
+                    if (paused) return;
+                    // const count = pattern[i % pattern.length];
+                    const count = Math.floor(Math.random() * maxLetters) + 1;
+
+                    // const count = Math.floor(Math.random() * 5) + 1;
+                    // aSpan.textContent = 'a'.repeat(count);
+                    aSpan.textContent = randomLetters(count);
+
+                    // random interval
+                    const nextDelay = Math.random() * 100;
+                    timeoutId = setTimeout(updateA, nextDelay);
+
+                    // vibration
+                    // const randomTilt = (Math.random() - 0.5) * 10;
+                    // aSpan.style.transform = `rotate(${randomTilt}deg)`;
+
+                    i++;
+                }
+                
+                function startAnimation() {
+                    // if (!interval) interval = setInterval(updateA, 100);
+                    if (!timeoutId) updateA();
+                }
+                function stopAnimation() {
+                    // clearInterval(interval);
+                    // interval = null;
+                    clearTimeout(timeoutId);
+                    timeoutId = null;
+                }
+
+                // hover to pause
+                title.addEventListener('mouseenter', () => {
+                    paused = true;
+                    stopAnimation();
+                    aSpan.textContent = 'arste';
+                    aSpan.style.transform = '';
+                    aSpan.style.letterSpacing = '';
+                });
+
+                // resume on leave
+                title.addEventListener('mouseleave', () => {
+                    paused = false;
+                    startAnimation();
+                });
+
+                startAnimation();
             </script>
         </div>
       </body>
