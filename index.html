@@ -78,7 +78,7 @@
                 <button type = "button" class = "button button8" onclick="emailme()">Email Me</button>
             </div>
 
-            <div class="button" style="padding-top: 10px; font-size: 0.8em;">P.S. Hover over my name to stop the animation!</div>
+            <div class="button" style="padding-top: 10px; font-size: 0.8em;">P.S. Hover over my name to start the animation!</div>
 
             <div class="footer">
                 Copyright 2024 david g@n. css inspired by <a href = "https://github.com/mrmierzejewski/hugo-theme-console/" target="_blank">Console Theme</a>. 
@@ -163,7 +163,7 @@
                 }
 
                 // hover to pause
-                title.addEventListener('mouseenter', () => {
+                title.addEventListener('mouseleave', () => {
                     paused = true;
                     stopAnimation();
                     aSpan.textContent = 'arste';
@@ -172,12 +172,12 @@
                 });
 
                 // resume on leave
-                title.addEventListener('mouseleave', () => {
+                title.addEventListener('mouseenter', () => {
                     paused = false;
                     startAnimation();
                 });
 
-                startAnimation();
+                stopAnimation();
             </script>
         </div>
       </body>
