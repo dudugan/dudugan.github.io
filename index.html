@@ -162,20 +162,30 @@
                     timeoutId = null;
                 }
 
-                // hover to pause
-                title.addEventListener('mouseleave', () => {
+                function pause() {
                     paused = true;
                     stopAnimation();
                     aSpan.textContent = 'arste';
                     aSpan.style.transform = '';
                     aSpan.style.letterSpacing = '';
-                });
+                }
 
-                // resume on leave
-                title.addEventListener('mouseenter', () => {
+                function resume() {
                     paused = false;
                     startAnimation();
+                }
+
+                // desktop
+                title.addEventListener('mouseenter', resume);
+                title.addEventListener('mouseleave', pause);
+
+                // mobile
+                title.addEventListener('touchstart', (e) => {
+                    e.preventDefault(); // prevent highlight/zoom
+                    resume();
                 });
+                title.addEventListener('touchend', pause);
+                title.addEventListener('touchcancel', pause);
 
                 stopAnimation();
             </script>

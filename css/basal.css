@@ -9,6 +9,12 @@
     font-size: var(--global-font-size);
     border-radius: 4px;
 }
+/* 
+h1 {
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+} */
 
 .button:hover {
     background-color: var(--primary-color);
