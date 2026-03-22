@@ -1,195 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="shortcut icon" type="image/png" href="lemur.png">
-        <meta charset="utf8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/terminal.css">
-        <link rel="stylesheet" href="css/animate.css">
-        <link rel="stylesheet" href="css/console.css">
-        <link rel="stylesheet" href="css/basal.css">
-        <title>dudugan</title>
-    </head>
-    <body class="terminal">
-        <div class="container">
-            <div class="terminal-nav">
-                <header class="terminal-logo">
-                    <div class="logo terminal-prompt">
-                    <a href="index.html" class="no-style site-name">dudugan</a>:~#
-                    </div>
-                </header>
-                <nav class="terminal-menu">
-                    <ul vocab="https://schema.org/" typeof="BreadcrumbList">
-                        <li>
-                            <a href="research.html">\research_ </a>
-                            <a href="creative.html">\creative_</a>
-                            <a href="affiliations.html">\affiliations_ </a>
-                            <a href="favorites.html">\favorites_ </a>
-                            <a href="resume.pdf" download>\resume_ </a>
-                            <!-- <a href="https://dudugan.substack.com/" target="_blank">\blog_ </a> -->
-                        </li>
-                    </ul>
-                </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+        content="width=device-width, 
+        initial-scale=1.0">
+    <title>dudugan</title>
+    <link rel="shortcut icon" type="image/png" href="icons/lemur.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="left-half" class="half">
+
+        <div class="nav" id="nav-left">
+            <div onclick="replaceLeft('read-me')"
+                id="read-me-button">
+                read me</div>
+            <div onclick="replaceLeft('about-me')"
+                class="inactive" id="about-me-button">
+                about me</div>
+        </div>
+
+        <div class="box">
+
+            <div class="gallery">
+                <img id="me-img">
+                <div id="next-image-button" onclick="nextImage()">
+                    <p>nextimage</p>
+                </div>
+            </div>
+
+            <div class="content" id="left-content">
+            </div>
+
+            <div id="cli">
+                <span class="cyantext">dudugan:</span><!--
+                -->~# 
+                <span id="last-path">\readme_</span>
+                <input id="cli-input" 
+                    autocomplete="off"
+                    spellcheck="false"
+                    aria-label="Command line input">
+                <span id="word-mirror"></span>
+                <span class="cyantext cursor">█</span> 
             </div>
         </div>
-    
-        <div class="container slide" >
-            <h1 id="title">david g<span id="a" class="a">aaaaa</span>n</h1>
-            <p>
-                Hi! I'm a linguist, writer, composer, and programmer interested in the four As:
-                animals, aliens, artificial intelligence, and ancient people. I love to tell stories
-                in all sorts of mediums, and you can subscribe to my personal blog for
-                <a href = "https://dudugan.substack.com" target="_blank">short essays and artistic updates</a>.
-                I also write about <a href = "https://backyardbiolinguistics.substack.com" target="_blank">
-                    animal communication and theoretical linguistics</a>
-                    in my spare time!</p>
-            <p>Check out my artistic projects 
-                <a href = "creative.html">here</a>, 
-                my research interests <a href="research.html">here</a>,
-                and what I am/was involved in 
-                <a href = "affiliations.html">over there!</a></p>  
-                <!-- Currently I'm:</p>
-            <ul>
-                <li>Composing a character suite for Fonda Lee's 
-                    <a href="https://www.goodreads.com/series/216281-the-green-bone-saga">
-                        Green Bone Saga</a>.</li>
-                <li>Plotting a long-term webnovel inspired by 
-                    <a href = "https://unsongbook.com/" target="_blank">UNSONG</a>,
-                    about Y2K, eclipse hunters, the simulation hypothesis, and cuneiform. </li>
-                <li>Editing my to-be-published syntactic analysis of English nonfactives and 
-                    small clause selection
-                    through the lens of the <i>it's giving</i>
-                and <i>just screams</i> constructions.</li>
-                <li>Coding a personality quiz about trophic niches inspired by <a href = "https://iseej.github.io/CosmosPersona/" target="_blank">Cosmos Persona</a>. </li>
-                <li>Making an album (very slowly).</li>
-            </ul>
-            </p> -->
+    </div>
+    <div id="right-half" class="half">
+        
+        <div class="nav" id="nav-right">
 
+            <div onclick="replaceRight('research'); 
+            hideCreativeButtons()" class="inactive"
+            id="research-button">
+            \research_</div>
 
-            <div class = "image-grid">
-                <button type = "button" class = "button button1" onclick="openlink('open.spotify.com/user/mrcranium23?si=023da2ce0ac54237')">Spotify</button>
-                <button type = "button" class = "button button2" onclick="openlink('www.youtube.com/@simulanger')">YouTube</button>
-                <button type = "button" class = "button button3" onclick="openlink('letterboxd.com/dudushi/')">Letterboxd</button>
-                <button type = "button" class = "button button4" onclick="openlink('www.goodreads.com/user/show/147256252')">Goodreads</button>
-                <button type = "button" class = "button button5" onclick="downloadFile('/resume.pdf', 'David_Garsten_Resume.pdf')">Resume</button>
-                
-                <button type = "button" class = "button button6" onclick="openlink('www.zotero.org/dudugan/library')">Zotero</button>
-                <button type = "button" class = "button button7" onclick="openlink('www.instagram.com/invites/contact/?i=1haytr2eku14k&utm_content=83g1ns3')">Instagram</button>
-                <button type = "button" class = "button button8" onclick="emailme()">Email Me</button>
-            </div>
+            <div onclick="replaceRight('creative'); 
+            showCreativeButtons()" class="inactive"
+            id="creative-button">\creative_</div>
 
-            <div class="button" style="padding-top: 10px; font-size: 0.8em;">P.S. Hover over/press on my name to start the animation!</div>
+            <div onclick="replaceRight('affiliations'); 
+            hideCreativeButtons()" class="inactive"
+            id="affiliations-button">\affiliations_</div>
 
-            <div class="footer">
-                Copyright 2024 david garsten. css inspired by <a href = "https://github.com/mrmierzejewski/hugo-theme-console/" target="_blank">Console Theme</a>. 
-            </div>
+            <div onclick="replaceRight('favorites'); 
+            hideCreativeButtons()" class="inactive"
+            id="favorites-button">\favorites_</div>
 
-            <script>
-                function openlink(link) {
-                    url = 'https://' + link; 
-                    window.open(url, '_blank'); 
-                }
-
-                function downloadFile(relativePath, filename) {
-                    const link = document.createElement('a');
-                    link.href = relativePath; 
-                    link.download = filename || '';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                }
-
-                function emailme() {
-                    window.open('mailto:david.garsten@yale.edu'); 
-                }
-            </script>
-            <script>
-                // COOL NAME THING
-                const title = document.getElementById('title');
-                const aSpan = document.getElementById('a');
-                let interval = null;
-                let paused = false;
-                let timeoutId = null;
-                let maxLetters = 100;
-
-                function updateMaxLetters() {
-                    // 1 letter / ~20px width, 200 cap
-                    maxLetters = Math.min(Math.floor(window.innerWidth / 40), 200);
-                }
-                updateMaxLetters();
-                window.addEventListener('resize', updateMaxLetters);
-
-                // const pattern = [1, 5, 20, 40, 10, 50, 7];
-                let i = 0;
-
-                function randomLetters(length) {
-                const letters = 'aəɐɑɘɛɜœβɓʙɕçbcðɖɗdeɻɽɟɺfɣɠɢgħɦɨıɪʑʝȷʁʀɞʜʎɭɫʟæɲɱʛhijklmŋɴɳɔɒɵɸɰɾɚɹ˞ʃʂθʈʊʉɤʋⱱʌʟʍɯɝɥʏχʒʐnopqrstuvwxyz';
-                let result = '';
-                for (let i = 0; i < length; i++) {
-                    result += letters[Math.floor(Math.random() * letters.length)];
-                }
-                return result;
-                }
-
-                function updateA() {
-                    if (paused) return;
-                    // const count = pattern[i % pattern.length];
-                    const count = Math.floor(Math.random() * maxLetters) + 1;
-
-                    // const count = Math.floor(Math.random() * 5) + 1;
-                    // aSpan.textContent = 'a'.repeat(count);
-                    aSpan.textContent = randomLetters(count);
-
-                    // random interval
-                    const nextDelay = Math.random() * 100;
-                    timeoutId = setTimeout(updateA, nextDelay);
-
-                    // vibration
-                    // const randomTilt = (Math.random() - 0.5) * 10;
-                    // aSpan.style.transform = `rotate(${randomTilt}deg)`;
-
-                    i++;
-                }
-                
-                function startAnimation() {
-                    // if (!interval) interval = setInterval(updateA, 100);
-                    if (!timeoutId) updateA();
-                }
-                function stopAnimation() {
-                    // clearInterval(interval);
-                    // interval = null;
-                    clearTimeout(timeoutId);
-                    timeoutId = null;
-                }
-
-                function pause() {
-                    paused = true;
-                    stopAnimation();
-                    aSpan.textContent = 'arste';
-                    aSpan.style.transform = '';
-                    aSpan.style.letterSpacing = '';
-                }
-
-                function resume() {
-                    paused = false;
-                    startAnimation();
-                }
-
-                // desktop
-                title.addEventListener('mouseenter', resume);
-                title.addEventListener('mouseleave', pause);
-
-                // mobile
-                title.addEventListener('touchstart', (e) => {
-                    e.preventDefault(); // prevent highlight/zoom
-                    resume();
-                });
-                title.addEventListener('touchend', pause);
-                title.addEventListener('touchcancel', pause);
-
-                stopAnimation();
-            </script>
         </div>
-      </body>
+
+        <div class="box" id="right-box">
+
+            <div class="content" id="right-content">
+            </div>
+            
+        </div>  
+
+    </div>
+    <div id="welcome-box">
+        <p>press <b>r</b> for research interests,<br>
+            <b>c</b> for creative projects,<br>
+            <b>a</b> for affiliations,<br>
+            or <b>f</b> for favorites.</p>
+            <p>then press enter to GO.</p>
+            <p><br>(this website is still under
+            construction,<br>
+            so please forgive any bugs!)</p>
+            <p class="mobile-only"><br>--currently 
+                not great on mobile devices--</p>
+    </div>
+    <div class="footer">
+        <hr>
+        Copyright 2026 david
+        garsten. coded by hand with 
+        html, js, and css. designed in figma.
+    </div>
+    <script src="js/populator.js"></script>
+    <script src="js/helpers.js"></script>
+    <script src="js/cli.js"></script>
+</body>
 </html>
