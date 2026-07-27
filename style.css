@@ -293,9 +293,16 @@ body {
     display: none;
 }
 
+.desktop-only {
+    display: block;
+}
+
 @media (max-width: 700px) {
     .mobile-only {
         display: block;
+    }
+    .desktop-only {
+        display: none;
     }
 }
 
@@ -395,25 +402,17 @@ p {
   body {
     grid-template-areas:
         "left"
-        "right"
         "footer";
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 2fr auto;
-    gap: 15px;
-    padding: 15px;
+    grid-template-rows: 1fr auto;
   }
 
-  .half {
-    max-height: none; /* the desktop calc() was tuned for side-by-side layout */
+  #right-half,
+  #welcome-box {
+    display: none;
   }
 
   #left-half {
-    max-height: calc(70vh - 1rem); /* left takes most of the height */
-  }
-
-  #welcome-box,
-  #right-half {
-    max-height: calc(30vh - 1rem);
-    overflow-y: auto;
+    max-height: calc(100vh - 70px - 1rem); /* same budget as desktop, just full-width now */
   }
 }
