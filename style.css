@@ -388,3 +388,32 @@ p {
     aspect-ratio: 0.8;
     padding: 6px;
 }
+
+/* mobile */
+
+@media (max-width: 700px) {
+  body {
+    grid-template-areas:
+        "left"
+        "right"
+        "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr auto;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .half {
+    max-height: none; /* the desktop calc() was tuned for side-by-side layout */
+  }
+
+  #left-half {
+    max-height: calc(70vh - 1rem); /* left takes most of the height */
+  }
+
+  #welcome-box,
+  #right-half {
+    max-height: calc(30vh - 1rem);
+    overflow-y: auto;
+  }
+}
