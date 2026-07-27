@@ -398,7 +398,7 @@ p {
 
 /* mobile */
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   body {
     grid-template-areas:
         "left"
@@ -414,5 +414,16 @@ p {
 
   #left-half {
     max-height: calc(100vh - 70px - 1rem); /* same budget as desktop, just full-width now */
+  }
+
+  .gallery {
+    width: 30%;
+    margin-left: 0.4rem;
+    margin-right: auto; 
+  }
+
+  #next-image-button {
+    height: 54px;
+    width: 12px;
   }
 }
