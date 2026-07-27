@@ -36,31 +36,26 @@ function replaceContent (place, input) {
             case 'welcome':
                 break;
             case '404':
-                resetRightBox();
                 break;
             case 'research':
-                resetRightBox();
                 document.getElementById("research-button").classList.remove("inactive");
                 document.getElementById("creative-button").classList.add("inactive");
                 document.getElementById("affiliations-button").classList.add("inactive");
                 document.getElementById("favorites-button").classList.add("inactive");
                 break;
             case 'creative':
-                resetRightBox();
                 document.getElementById("creative-button").classList.remove("inactive");
                 document.getElementById("research-button").classList.add("inactive");
                 document.getElementById("affiliations-button").classList.add("inactive");
                 document.getElementById("favorites-button").classList.add("inactive");
                 break;
             case 'affiliations':
-                resetRightBox();
                 document.getElementById("affiliations-button").classList.remove("inactive");
                 document.getElementById("research-button").classList.add("inactive");
                 document.getElementById("creative-button").classList.add("inactive");
                 document.getElementById("favorites-button").classList.add("inactive");
                 break;
             case 'favorites':
-                resetRightBox();
                 document.getElementById("favorites-button").classList.remove("inactive");
                 document.getElementById("research-button").classList.add("inactive");
                 document.getElementById("creative-button").classList.add("inactive");
@@ -77,4 +72,5 @@ window.replaceLeft = function(leftchoice) {
 window.replaceRight = function(rightchoice) {
     console.log("replaceRighting", rightchoice);
     if (!rightContent) {console.error("right content is missing"); return;}
+    resetRightBox();
     replaceContent(rightContent, rightchoice);}
