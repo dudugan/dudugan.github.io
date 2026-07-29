@@ -405,6 +405,7 @@ p {
         "footer";
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto;
+    min-width: 0; 
   }
 
   #right-half,
