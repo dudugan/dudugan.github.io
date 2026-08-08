@@ -163,10 +163,22 @@ const ACTIONS = {
 // which reads as the content "shifting up" to reveal it. Closing the last
 // still-open accordion in #right-content reverses that: scrolls back to
 // the top, i.e. "shifts back down".
+//
+// this scrolls #right-content directly (via its own scrollTop) rather than
+// section.scrollIntoView() -- scrollIntoView walks every scrollable
+// ancestor, including <body>, and body:has(#right){overflow:hidden} above
+// only blocks *user-driven* scrolling of it, not programmatic scrolling.
+// On mobile that let scrollIntoView shove the whole page up (hiding the
+// navbar) with no way to scroll back, since body's overflow:hidden then
+// blocks the user from undoing it.
 function openAccordion(section) {
     if (!section || section.classList.contains('open')) return;
     section.classList.add('open');
-    section.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    const container = document.getElementById('right-content');
+    if (container) {
+        const delta = section.getBoundingClientRect().top - container.getBoundingClientRect().top;
+        container.scrollTo({ top: container.scrollTop + delta, behavior: 'smooth' });
+    }
 }
 function closeAccordion(section) {
     if (!section || !section.classList.contains('open')) return;

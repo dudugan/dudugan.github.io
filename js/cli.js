@@ -16,7 +16,18 @@ const CLI_ACTIONS = {
     anglerfish: 'video-toggle',
 };
 
-document.body.addEventListener('click', () => {
+// touch-primary devices (phones/tablets) have no physical keyboard, so
+// "focus" means popping the on-screen keyboard -- auto-focusing the cli
+// there just interrupts navigation instead of offering a shortcut
+const isTouchPrimary = window.matchMedia?.('(pointer: coarse)').matches;
+
+// re-focuses the cli after a click anywhere on the page, so typing a
+// command works without having to click the cli itself first -- but not
+// for clicks on links/buttons/inputs, which navigate or act on their own,
+// and not on touch devices, where stealing focus just pops the keyboard
+document.body.addEventListener('click', (e) => {
+    if (isTouchPrimary) return;
+    if (e.target.closest('a, button, input, [data-action]')) return;
     document.getElementById('cli-input')?.focus({ preventScroll: true });
 });
 
@@ -25,7 +36,7 @@ function initCli() {
     const mirror = document.getElementById('word-mirror');
     if (!input) return;
 
-    input.focus({ preventScroll: true });
+    if (!isTouchPrimary) input.focus({ preventScroll: true });
     input.addEventListener('input', () => { mirror.textContent = input.value; });
 
     input.addEventListener('keydown', (e) => {

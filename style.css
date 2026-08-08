@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: 'Comic Shanns';
-    src: url('fonts/ComicShanns.ttf') format('truetype');}
+    src: url('media/fonts/ComicShanns.ttf') format('truetype');}
 
 :root {
     --bg: #F4F1D2;
@@ -32,9 +32,9 @@
     --c-instagram: #d6447e;
     --c-linkedin: #0a66c2;
 
-    --header-font: 'Comic Shanns', 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive;
+    --header-font: 'Comic Shanns', 'Comic Neue', 'Comic Sans MS', 'Comic Sans', 'Nunito', sans-serif;
     --body-font: 'Nunito', Calibri, 'Trebuchet MS', sans-serif;
-    --strong-font: 'Nunito', 'Comic Shanns', 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive;
+    --strong-font: 'Nunito', 'Comic Shanns', 'Comic Neue', 'Comic Sans MS', 'Comic Sans', 'Nunito', sans-serif;
     --h1-size: 18px;
     --h2-size: 18px;
     --p-size: 18px;
