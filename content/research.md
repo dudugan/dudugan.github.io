@@ -30,7 +30,7 @@ This past summer, I got two months of fieldwork experience in Tbilisi, Georgia, 
 </accordion>
 
 <accordion icon="media/icons/accordion/other-animals.svg" title="OTHER ANIMALS">
-**Garsten, David\***, Anton Hampe\*, and Adriana Zhou\*. 2026. *Inferring complexity of animal communication systems from small samples* International Conference on Grammatical Inference (talk). \*Equal contribution.
+**Garsten, David\***, Anton Hampe\*, and Adriana Zhou\*. 2026. *Inferring complexity of animal communication systems from small samples*. International Conference on Grammatical Inference (talk). \*Equal contribution.
 
 **Garsten, David\*** and Anton Hampe\*. 2025. *Revisiting the subregular complexity of Bengalese finch song* SYNC 2025 (talk, [slides here](https://docs.google.com/presentation/d/1CGvMFQaaN0wiIw6ZTGi_RS4brBkO6w5d5QmuukxPBWc/edit?usp=sharing)). \*Equal contribution.
 
