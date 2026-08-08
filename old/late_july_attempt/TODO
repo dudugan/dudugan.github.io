@@ -1,0 +1,102 @@
+(see ARCHITECTURE.md for the current writeup + open questions,
+ARCHIVE.md for past decisions)
+
+ARCHITECTURE -- STEP BY STEP (option A: client-side fetch + merge)
+
+0. quick fixes before building the merge
+   - toolbar click handler checks e.target.closest('#tool-btn'), should
+     be '.tool-btn' (buttons are classes now, not ids) -- also currently
+     a syntax error (missing closing paren), breaks the whole file
+   - images/headshots/siena is missing its extension (should be
+     siena.jpg) in both index.html and other.html's <img>
+   - cli.js: David confirmed the file split is intentional. No full
+     rewrite needed -- just swap the replaceLeft()/replaceRight() calls
+     for real links to the new pages, and drop the favorites branch
+     (favorites isn't part of the new nav). Since content-only pages
+     don't have the cli markup until after the merge (step 1), cli.js
+     needs to be loaded dynamically after the merge finishes rather
+     than as a static <script> tag on those pages specifically --
+     index.html/other.html keep their static tag as-is.
+
+1. page-type detection + merge (the new core piece)
+   - on DOMContentLoad, check for #content-mount in the current document
+   - if present (index.html, other.html): shell's already there, go
+     straight to mounting
+   - if absent (research.html and future content-only pages):
+     a. save the page's own body content
+     b. fetch('other.html'), parse the response
+     c. replace the live body's contents with the fetched shell's body
+     d. drop the saved content into the now-present #content-mount
+     e. continue into the same mounting step as any other page
+   - give content-only pages a real minimal <head> (doctype/meta/
+     title/link stylesheet/script src) instead of loose <script> tags
+     in the body -- scripts inserted via .innerHTML never execute, so
+     as currently written those tags would just go dead once merged
+   - add a flash-of-unstyled-content guard (e.g. hide <html> via css
+     until js marks it ready) since content-only pages briefly show
+     raw unstyled html before the merge finishes
+
+2. MOUNTING (script.js)
+   - toolbar buttons into every .toolbar-mount (tool-btn +
+     theme-btn/music-btn/video-btn/dice-btn), mounting only the first
+     two when the mount also has class="half-toolbar"
+   - nav list into #nav-mount (readme/aboutme/research/creative/
+     affiliations)
+   - platform-link buttons into every .links-mount (substack/spotify/
+     letterboxd/goodreads/github/resume/instagram), duplicated when
+     the mount is also .marquee
+   - write this as a function that runs after step 1's merge (if any)
+     so it always sees the real mount points
+
+3. TOOLBAR behavior (script.js)
+   - theme-btn: dark/light toggle, rotate 90deg clockwise w/
+     transition, starts light
+   - music-btn: play/pause bg-audio, mirror-flip (scaleY(-1)) the
+     button every 0.5s with no transition while playing, starts
+     paused/static
+   - video-btn: play/pause bg-video, swap eye.svg / eye-closed.svg,
+     starts on eye.svg/paused
+   - dice-btn: randomize #photos's image from HEADSHOTS, never
+     repeating the current one
+
+4. MARQUEE engine (script.js + style.css)
+   - css keyframes (or js-driven) scroll for .marquee-ltr / .marquee-rtl
+   - pause on hover, resume on mouse-leave
+   - depends on step 2's mounting duplicating content for seamless
+     looping
+
+5. research.html's accordion
+   - replace the ${accordionSection(...)} calls (dead text as written)
+     with a small inline <script> in research.html that calls the
+     real accordionSection() from script.js for each section and
+     injects the result -- keeps the accordion's content in
+     research.html, reuses the one shared builder
+
+6. about-me.html / creative.html / affiliations.html
+   - once steps 1-5 are solid for research.html, build the other
+     three content-only pages the same way
+
+STYLE (style.css)
+- .marquee / .marquee-ltr / .marquee-rtl -- nothing exists yet
+- .tool-btn / .theme-btn / .music-btn / .video-btn / .dice-btn -- no
+  sizing, no icon coloring
+- .link-btn -- no styling at all; turquoise/magenta/blue/etc. vars are
+  defined but unused, decide if per-button color cycling is still
+  wanted
+- .accordion / .accordion-section / .accordion-header /
+  .accordion-chevron / .accordion-icon / .accordion-body -- none of
+  this exists yet
+- dark mode palette -- only one set of (light) variables exists
+- #photos img -- no sizing/aspect-ratio/rounding/shadow rules
+- #cli -- has spacing but no visual box treatment (no border-radius/
+  shadow/background, so it doesn't read as a distinct widget yet)
+- .layout still has the "put good margins here" placeholder comment
+- #small-toolbar buttons are 10px / #big-toolbar buttons are 30px --
+  revisit sizing once real icon content is in them
+
+CONTENT (whenever -- no rush per your answer)
+- fill in the empty <a href=""> placeholders in index.html's bio text
+- wire the email mention to emailme() or leave as obfuscated text on
+  purpose -- currently neither linked nor called anywhere
+- lorem ipsum sections in research.html (humans / other animals /
+  aliens / ancient people) still need real copy

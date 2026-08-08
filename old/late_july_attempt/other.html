@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width,
+        initial-scale=1.0">
+    <title>borderline conscious</title>
+    <link rel="shortcut icon" type="image/png" href="icons/lemur.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="toolbar-mount half-toolbar" id="big-toolbar"></div>
+
+    <div class="layout">
+        <nav class="marquee marquee-rtl" id="nav-mount"></nav>
+
+        <div id="other-main">
+            <div id="left-sidebar">
+                <div id="photos-and-buttons">
+                    <div id="photos"><img src="images/headshots/siena.jpg"></div>
+                    <div class="toolbar-mount" id="small-toolbar"></div>
+                </div>
+                <div id="intro-text">
+                    <h1 id="intro-header">Hi! I'm David Garsten.</h1>
+                    <p id="intro-paragraph">Subscribe to <i><a href="">borderline conscious</a></i>
+                        (my newsletter), <i><a href="">backyard biolinguistics</a></i>
+                        (my linguistics blog), or <i><a href="">fried grice</a></i>
+                        (my ai safety blog) to beam me up to your inbox. Or just reach
+                        out at duzugan at gmail dot com!
+                    </p>
+                </div>
+                <div class="high-links-mount links-mount"></div>
+            </div>
+            <div id="content-mount"></div>
+        </div>
+
+        <footer id="other-footer">
+            <div id="copyright">
+                <p>copyright 2026 david garsten. coded by hand with html,
+                    js, and css. <a href="">designed in excalidraw</a>.
+                </p>
+                <hr>
+            </div>
+            <div class="other-cli" id="cli">
+                <span class="accent-1">dudugan:</span><!--
+                -->~#
+                <span id="last-path">\readme_</span>
+                <input id="cli-input"
+                    autocomplete="off"
+                    spellcheck="false"
+                    aria-label="Command line input">
+                <span id="word-mirror"></span>
+                <span class="accent-1 cursor">█</span>
+            </div>
+            <div class="low-links-mount links-mount marquee marquee-ltr"></div>
+        </footer>
+    </div>
+
+    <!-- see index.html for why src was dropped from here (lazy-loaded
+    by script.js on first click instead) and muted was added -->
+    <video id="bg-video" poster="media/tbilisi-poster.jpg" preload="none" muted loop playsinline></video>
+    <audio id="bg-audio" src="media/r4.mp3" loop preload="none"></audio>
+    <script src="script.js"></script>
+    <script src="cli.js"></script>
+</body>
+</html>

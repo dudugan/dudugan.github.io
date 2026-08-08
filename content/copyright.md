@@ -1,0 +1,1 @@
+copyright 2026 david garsten. <html><a href="media/documents/design.png" target="_blank">designed</a></html> in excalidraw.

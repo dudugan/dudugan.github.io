@@ -1,46 +1,46 @@
-const wordMirror = document.getElementById('word-mirror');
-const input = document.getElementById('cli-input');
-const cli = document.getElementById('cli');
-const lastPath = document.getElementById('last-path');
-const body = document.body;
+const CLI_ROUTES = [
+    ['rea', 'readme'], ['ab', 'aboutme'], ['r', 'research'],
+    ['cha', 'chameleon'], ['c', 'creative'],
+    ['ani', 'research-other-animals'], ['anc', 'research-ancient-people'],
+    ['an', 'anglerfish'],
+    ['art', 'research-ai'], ['al', 'research-aliens'], ['ai', 'research-ai'],
+    ['a', 'affiliations'],
+    ['f', 'favorites'],
+    ['s', 'songbird'], ['o', 'octopus'], ['h', 'research-humans'],
+];
 
-window.addEventListener('load', () => input.focus());
-cli.addEventListener('click', () => input.focus());
-body.addEventListener('click', () => input.focus());
-    // ephemeral like that
+const CLI_ACTIONS = {
+    chameleon: 'theme-cycle',
+    songbird: 'audio-toggle',
+    octopus: 'photo-cycle',
+    anglerfish: 'video-toggle',
+};
 
-input.addEventListener('input', () => {
-    wordMirror.textContent = input.value;});
-
-input.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab') e.preventDefault();});
-
-input.addEventListener('focus', () => console.log('focused'));
-
-input.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        const text = input.value;
-        const prefix = text.split(' ')[0];
-
-        if (prefix.startsWith('rea')){
-            replaceLeft('read-me');
-            lastPath.innerHTML = `\\readme_`;} 
-        else if (prefix.startsWith('ab')){
-            replaceLeft('about-me');
-            lastPath.innerHTML = `\\aboutme_`;} 
-        else if (prefix.startsWith('r')){
-            replaceRight('research');
-            lastPath.innerHTML = `\\research_`;} 
-        else if (prefix.startsWith('c')){
-            replaceRight('creative');
-            lastPath.innerHTML = `\\creative_`;} 
-        else if (prefix.startsWith('a')){
-            replaceRight('affiliations');
-            lastPath.innerHTML = `\\affiliations_`;} 
-        else if (prefix.startsWith('f')){
-            replaceRight('favorites');
-            lastPath.innerHTML = `\\favorites_`;}
-
-        input.value = '';
-        wordMirror.textContent = '';}
+document.body.addEventListener('click', () => {
+    document.getElementById('cli-input')?.focus({ preventScroll: true });
 });
+
+function initCli() {
+    const input = document.getElementById('cli-input');
+    const mirror = document.getElementById('word-mirror');
+    if (!input) return;
+
+    input.focus({ preventScroll: true });
+    input.addEventListener('input', () => { mirror.textContent = input.value; });
+
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') e.preventDefault();
+        if (e.key !== 'Enter') return;
+        const prefix = input.value.split(' ')[0];
+        const route = CLI_ROUTES.find(([p]) => prefix.startsWith(p));
+        if (route) {
+            const action = CLI_ACTIONS[route[1]] || (ACTIONS[route[1]] ? route[1] : null);
+            if (action) ACTIONS[action]?.();
+            else location.hash = route[1];
+        }
+        input.value = '';
+        mirror.textContent = '';
+    });
+}
+
+window.initCli = initCli;

@@ -1,430 +1,396 @@
-@font-face {
-    font-family: 'SingleDay';
-    src: url('fonts/SingleDay-Regular.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;}
-@font-face {
-    font-family: 'Roboto Mono';
-    src: url('fonts/Roboto_Mono/static/RobotoMono-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;}
-@font-face {
-    font-family: 'Roboto Mono';
-    src: url('fonts/Roboto_Mono/static/RobotoMono-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;}
-@font-face {
-    font-family: 'Kode Mono';
-    src: url('fonts/KodeMono.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;}
-@font-face {
-    font-family: 'RockSalt';
-    src: url('fonts/RockSalt.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;}
+/* colors */
 
+@font-face {
+    font-family: 'Comic Shanns';
+    src: url('fonts/ComicShanns.ttf') format('truetype');}
 
 :root {
-    --font-family-primary: 'Roboto Mono', 'Courier New', Courier, monospace;
-    --font-family-headings: 'SingleDay', 'Comic Sans MS', 'Comic Sans', cursive;
-    --font-family-code: 'Kode Mono', 'Courier New', Courier, monospace;
-    --turquoise: #76F4D0;
-    --magenta: #FF93BB;
-    --blue: #87D3F5;
-    --yellow: #F5DF8E;
-    --orange: #FEA394;
-    --teal: #79F2F2;
-    --indigo: #93AEF7;
-    --red: #FF9396;
-    --cyan: #009AAD;
-    --wallpaper-color: #E1F5EA;
-    --box-color: #F4F9E9;
-    --welcome-color: #32342D;
-    --glass-color: rgba(244, 249, 233, 0.4);
-    --box-shadow-color: #89928D;
-    --purple-link-color: #782CFC;
-        /* rgba(68, 68, 68, 0.56) for overlapping effect */
-    --font-size-small: 0.8em;
-    --font-size-medium: 1em;
-    --font-size-large: 1.2em;
+    --bg: #F4F1D2;
+    --text: #1E1E1E;
+    --accent-red: #C72929;
+    --accent-green: #099268;
+    --accent-purple: #6741D9;
+    --accent-blue: #0044b0;
+    --accent-red-bg: #FA5252;
+    --accent-purple-bg: rgba(201, 174, 251, 0.55);
+
+    --cream: var(--bg);
+    --ink: var(--text);
+    --coral: var(--accent-red);
+    --teal: var(--accent-green);
+    --purple: var(--accent-purple);
+    --blue: var(--accent-blue);
+    --purple-bg: var(--accent-purple-bg);
+    --coral-bg: var(--accent-red-bg);
+
+    --c-substack: #e29234;
+    --c-spotify: #3c9b5c;
+    --c-letterboxd: #d64545;
+    --c-goodreads: #3d7dc9;
+    --c-github: #7b4fd1;
+    --c-resume: #8b6b4a;
+    --c-instagram: #d6447e;
+    --c-linkedin: #0a66c2;
+
+    --header-font: 'Comic Shanns', 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive;
+    --body-font: 'Nunito', Calibri, 'Trebuchet MS', sans-serif;
+    --strong-font: 'Nunito', 'Comic Shanns', 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive;
+    --h1-size: 18px;
+    --h2-size: 18px;
+    --p-size: 18px;
+    --small-size: 14px;
 }
 
-/**************/
-/* BG COLORS */
-/* .turquoise {background-color: var(--turquoise);}
-.magenta {background-color: var(--magenta);}
-.blue {background-color: var(--blue);}
-.yellow {background-color: var(--yellow);}
-.orange {background-color: var(--orange);}
-.teal {background-color: var(--teal);}
-.indigo {background-color: var(--indigo);}
-.red {background-color: var(--red);} */
+/* named color schemes -- js/helpers.js cycles body[data-theme] through these.
+   add a new one by copying a block and giving it a new name + the THEMES list.
+   (each sets both the 8 role vars AND the old alias names directly -- the
+   alias chain in :root only resolves reliably on the element that declares
+   it, not down through inheritance, so overrides re-set both.) */
+body[data-theme="dusk"] {
+    --bg: #1B1E3D; --text: #EAE6FF;
+    --accent-red: #FF6B6B; --accent-green: #4DD4AC;
+    --accent-purple: #B892FF; --accent-blue: #7FB3FF;
+    --accent-red-bg: #FF6B6B; --accent-purple-bg: rgba(184, 146, 255, 0.4);
+    --cream: #1B1E3D; --ink: #EAE6FF;
+    --coral: #FF6B6B; --teal: #4DD4AC; --purple: #B892FF; --blue: #7FB3FF;
+    --coral-bg: #FF6B6B; --purple-bg: rgba(184, 146, 255, 0.4);
+}
+body[data-theme="meadow"] {
+    --bg: #EEF5E1; --text: #24391E;
+    --accent-red: #D9662A; --accent-green: #3F8F4F;
+    --accent-purple: #6B8F3F; --accent-blue: #2F7A5C;
+    --accent-red-bg: #D9662A; --accent-purple-bg: rgba(107, 143, 63, 0.35);
+    --cream: #EEF5E1; --ink: #24391E;
+    --coral: #D9662A; --teal: #3F8F4F; --purple: #6B8F3F; --blue: #2F7A5C;
+    --coral-bg: #D9662A; --purple-bg: rgba(107, 143, 63, 0.35);
+}
 
-.colorli >:nth-child(1) {background-color: var(--turquoise);}
-.colorli >:nth-child(2) {background-color: var(--magenta);}
-.colorli >:nth-child(3) {background-color: var(--blue);}
-.colorli >:nth-child(4) {background-color: var(--yellow);}
-.colorli >:nth-child(5) {background-color: var(--orange);}
-.colorli >:nth-child(6) {background-color: var(--teal);}
-.colorli >:nth-child(7) {background-color: var(--indigo);}
-.colorli >:nth-child(8) {background-color: var(--red);}
+/* anglerfish mode: full-bleed video background, everything white on top */
+body.av-mode {
+    --bg: #fff; --text: #fff;
+    --accent-red: #fff; --accent-green: #fff;
+    --accent-purple: #fff; --accent-blue: #fff;
+    --accent-red-bg: rgba(255, 255, 255, 0.35);
+    --accent-purple-bg: rgba(255, 255, 255, 0.35);
+    --cream: #fff; --ink: #fff;
+    --coral: #fff; --teal: #fff; --purple: #fff; --blue: #fff;
+    --coral-bg: rgba(255, 255, 255, 0.35); --purple-bg: rgba(255, 255, 255, 0.35);
+}
+/* link-btn borders normally come from a fixed brand color (--link-color),
+   set directly on the element, so it doesn't inherit the theme swap above
+   -- force it white too, more specifically so it still wins. */
+body.av-mode .link-btn {--link-color: #fff;}
+body.av-mode #content, body.av-mode #right-content,
+body.av-mode #cli, body.av-mode .linktree {visibility: hidden;}
+/* #photo lives inside #content on the readme route, so it inherits the
+   hidden visibility above unless it opts back in here */
+body.av-mode #photo {visibility: visible;}
+/* songbird's "on" indicator stays actually purple even here, rather than
+   washing out to white with everything else */
+body.av-mode #photo .label.playing {color: #6741D9; background: none;}
+body.av-mode #copyright {background-color: transparent;}
+/* the highlight behind the copyright link stays coral (purple on hover)
+   in av-mode instead of washing out to white along with the rest of the
+   theme */
+body.av-mode #copyright p a {background: #C72929;}
+body.av-mode #copyright p a:hover {background: #6741D9;}
+#bg-video {
+    display: none;
+    position: fixed; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: -1;}
+body.av-mode #bg-video {display: block;}
 
-#read-me-button:not(.inactive) {background-color: rgba(118, 244, 208, 0.4);}
-#about-me-button:not(.inactive) {background-color: rgba(255, 147, 187, 0.6);}
-#research-button:not(.inactive) {background-color: rgba(147, 174, 247, 0.6);}
-#creative-button:not(.inactive) {background-color: rgba(245, 223, 142, 1);}
-#affiliations-button:not(.inactive) {background-color: rgba(254, 163, 148, 0.76);}
-#favorites-button:not(.inactive) {background-color: rgba(121, 242, 242, 0.74);}
-
-.nav div {background-color: var(--box-color);}
-
-.cyantext {color: var(--cyan);}
-
-/**************/
-/* SECTIONS */
 * {box-sizing: border-box;}
 
-html {
-    font-family: var(--font-family-primary);
-    color: #000; 
-    line-height: 1.5;  
-    background-color: var(--wallpaper-color);
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-}
-
 body {
-    max-width: 900px;
-    height: 100vh;
-    margin: 0;
-    display: grid;
-    grid-template-areas:
-        "left right"
-        "footer footer";
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: auto auto;
-    gap: 30px;
-    padding: 20px 15px;
-}
-
-.half {
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    min-height: 0;
-    max-height: calc(100vh - 70px - 1rem);
-    /* 70px = 40px padding on body plus
-    30px gap btwn halves and footer */
-    /* 1rem = max-height of footer */
-    /* TODO this is still bad at small
-    viewport heights lol ugh */
-}
-
-#right-half {
-    display: none;
-}
-
-#welcome-box {
-    font-family: var(--font-family-code);
-    padding: 60px;
-}
-
-.nav {
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    font-family: var(--font-family-headings);
-}
-
-#nav-left {margin-right: 10px;}
-
-#nav-right {margin: 0px 10px;}
-
-.nav div {
-    border-radius: 0.5rem 0.5rem 0 0;
-    box-shadow: -0.1rem 4px 0px 0.4rem var(--box-shadow-color);
+    margin: 0; padding: 100px 0; min-height: 100vh;
     position: relative;
-    min-height: 2rem;
-    top: 6px;
-    padding: 5px 10px 10px 10px;
-    min-width: 5rem;
-}
+    background: var(--cream); color: var(--ink);
+    font-family: var(--body-font);
+    font-size: var(--p-size);
+    display: flex; justify-content: center;
+    flex-direction: column; align-items: center;}
+/* single-column pages (#main) sit at the top rather than vertically
+   centered; #main-big pages keep the centered behavior above */
+body:has(#main) {justify-content: flex-start;}
+@media (max-width: 600px) {body {padding: 0; justify-content: flex-start;}}
 
-.box {
-    display: flex;
-    flex: 0 1 auto;
-    min-height: 0;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    padding: 10px 20px;
-    background-color: var(--box-color);
-    border-radius: 1rem;
-    box-shadow: -0.1rem 4px 0px 0.4rem var(--box-shadow-color);
-    z-index: 0;
-    overflow-y: auto;
-    overflow-x: auto;
-}
+#copyright {position: fixed;}
+#main, #main-big, #navbar, .linktree {display: flex;}
 
-#right-box {
-    background-image: url(gif.gif);
-    height: 60%;
-    background-size: cover;
-}
-
-.gallery {
-    border-radius: 0.5rem;
-    box-shadow: -0.1rem 0.1rem 0px 0.4rem var(--box-shadow-color);
-    background-color: var(--box-color);
-    margin: 1.5rem 0.4rem;
-    padding: 0;
-    position: relative;
-}
-
-.gallery img {
-    width: 100%;
-    aspect-ratio: 1.5;
-    object-fit: cover;
-    display: block;
-}
-
-#next-image-button {
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90px;
-    width: 20px;
-    border-radius: 0.5rem;
-    background-color: var(--glass-color);
-    box-shadow: -0.1rem 0.2rem 0px 0px var(--box-shadow-color);
-    /* z-index: 2; */
-}
-
-#next-image-button p {
-    font-family: var(--font-family-headings);
-    font-size: var(--font-size-small);
+#copyright {
+    top: 70px; left: 10px;
+    transform-origin: left bottom;
     transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-}
+    border-bottom: 1px solid var(--ink);
+    background-color: var(--cream);}
+#copyright p {font-size: 12px; margin: 0; opacity: 0.7;}
+#copyright p a {color: white; background: var(--teal);}
+#copyright p a:hover {background: var(--purple);}
+#copyright hr {opacity: 0.7;}
 
-#next-image-button:hover {
-    cursor: pointer;
-    background-color: rgba(244, 249, 233, 0.6);
-}
+#navbar {
+    position: relative;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 0px;
+    font-size: var(--h2-size);
+    color: var(--coral);
+    font-family: var(--header-font);}
+#navbar h2 {margin: 0;}
+/* single highlight element that js/helpers.js slides around to sit behind
+   whichever nav-item is hovered, falling back to the active item when the
+   mouse isn't on the navbar at all -- instead of a separate always-there
+   highlight per item, this is just repositioned/resized in place, which
+   is what gives it the "jump" animation between items */
+#nav-highlight {
+    position: absolute;
+    background: url('media/images/highlight.png') no-repeat;
+    background-size: 100% 100%;
+    opacity: 0;
+    pointer-events: none;
+    /* duration here is just the default/fast (mouse-follow) case --
+       js/helpers.js overrides transition-duration to 0.4s for the slower
+       snap-back-to-active-item case */
+    transition: left 0.15s ease-in, top 0.15s ease-in, width 0.15s ease-in,
+        height 0.15s ease-in, opacity 0.15s ease-in;}
+header {width: 100%; max-width: 750px; margin: 15px 0px 20px -15px;}
+body:has(#main-big) header {max-width: 900px;}
+footer {width: 100%; margin: 20px 0 0 -20px;}
 
-.content {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+#main {max-width: 750px; width: 100%; margin: 20px 0;
+    padding: 0 40px; flex-direction: column;}
+#main-big {width: 100%; margin: 20px auto; gap: 20px;
+    padding: 0 40px; flex-direction: column; align-items: flex-start;
+    justify-content: center;}
+#left-and-right {display: flex; flex-direction: column; gap: 20px; align-items: flex-start;
+    justify-content: center; width: 100%;}
 
-#cli {
-    font-size: var(--font-size-small);
-    border-radius: 0.6rem;
-    box-shadow: -0.1rem 4px 0px 0.4rem var(--box-shadow-color);
-    padding: 0.5rem 0.4rem 0.5rem 0.8rem;
-    margin-top: 5vh;
-    margin-bottom: 0.5rem;
-    min-height: 2rem; 
-    width: calc(100% - 0.5rem);
-    word-break: break-all;
-}
+/* the two-column shell parser.js drops into #content for every route but
+   readme -- sits inside #main's existing 750px/40px-padding box, so #left
+   is fixed-width and #right just takes whatever's left rather than the two
+   needing hardcoded widths that have to sum correctly */
+/* 4 columns worth of space: #left gets 1, #right gets the other 3 --
+   grid instead of flex so neither side needs a hardcoded pixel width */
+/* width is deliberately left auto, not 100% -- a fixed/percentage width
+   plus margins on both sides is "over-constrained" per the CSS box model,
+   so the browser silently drops the right margin and just shifts the box
+   left instead of growing it. auto width lets negative margins on both
+   sides actually expand the box symmetrically. */
+#leftright {display: grid; grid-template-columns: 1fr 4fr; gap: 28px;
+    align-items: flex-start;}
+/* extend past #main's own 40px padding on desktop -- readme has no
+   #leftright at all, so this never touches it. with the bleed, #leftright
+   renders at a fixed ~1030px (#main's own max-width:750 content box, 670px
+   after its 40px padding each side, plus 360px of bleed) regardless of how
+   much wider the viewport gets -- so it only actually fits, unclipped,
+   once the viewport itself is at least that wide. Below that, #left is
+   dropped instead (see the max-width:1030px query below) rather than
+   letting this overflow and get clipped by body's overflow:hidden. */
+@media (min-width: 1031px) {#leftright {margin: 0 -180px;}}
+/* #left is just the photo + linktree now (sidebar bio text dropped --
+   still in content/sidebar.md if it's ever wanted back), right-aligned */
+#left {display: flex; flex-direction: column; align-items: flex-end;}
+/* max-height is set by js/helpers.js (sizeRight()), not hardcoded here --
+   the right pixel offset depends on the navbar/margins above it, which
+   have changed more than once, so a fixed calc() value goes stale easily */
+/* height itself (not just max-height) is set explicitly by js/helpers.js
+   (syncRightHeight()) so it can transition smoothly instead of snapping --
+   this is the "shift" animation: #right grows/shrinks to match how much
+   content is currently in #right-content (e.g. arriving at/leaving
+   creative, or opening/closing an accordion) */
+#right {display: flex; flex-direction: column; transition: height 0.4s ease-in-out;}
+#right-content {overflow-y: auto; flex: 1;}
+/* right-aligns the cli with #right's edge -- only takes effect where #cli
+   actually sits inside a flex container (i.e. #right); on readme #cli's
+   parent (#content) isn't flex, so align-self is a no-op there */
+#cli {align-self: flex-end;}
+/* whenever #right exists (every route but readme), the page itself is
+   locked from scrolling -- js/helpers.js redirects all wheel input to
+   #right instead, so #left/navbar/copyright never move */
+body:has(#right) {overflow: hidden;}
 
+#photo {
+    width: 100px; aspect-ratio: 1/1;
+    margin: 12px 0px; position: relative;}
+
+#photo img {
+    width: 100%; aspect-ratio: 1/1;
+    object-fit: cover;}
+
+#photo .label {
+    position: absolute;
+    z-index: 1;
+    color: var(--teal);
+    font-size: 13px; cursor: pointer;}
+#photo .label:hover {color: var(--cream); background: var(--teal);}
+#photo .label.playing {color: var(--purple);}
+#photo .label.playing:hover {color: var(--cream); background: var(--purple);}
+
+.label-top {
+    top: -18px; left: 50%;
+    transform: translateX(-50%) rotate(0deg);}
+.label-top:hover {transform: translateX(-50%) rotate(2deg);}
+.label-bottom {
+    bottom: -13px; left: 50%;
+    transform: translateX(-50%) rotate(180deg);}
+.label-bottom:hover {transform: translateX(-50%) rotate(178deg);}
+.label-left {
+    left: -38px; top: 50%;
+    transform: translateY(-50%) rotate(-90deg);}
+.label-left:hover {transform: translateY(-50%) rotate(-92deg);}
+.label-right {
+    right: -34px; top: 50%;
+    transform: translateY(-50%) rotate(90deg);}
+.label-right:hover {transform: translateY(-50%) rotate(92deg);}
+
+h1 {font-size: var(--h1-size); font-weight: 700;
+    font-family: var(--strong-font);}
+h2 {font-size: var(--h2-size);}
+p {font-size: var(--p-size);}
+strong {font-weight: 700; color: var(--purple);
+    font-family: var(--strong-font); font-size: var(--h2-size);}
+p a {color: var(--blue); text-decoration: none;}
+p a:hover {color: white; background: var(--purple);}
+.nav-item a {color: inherit; text-decoration: none;}
+
+.nav-item {position: relative; padding: 2px 0;}
+/* .lit is set by js/helpers.js, delayed until #nav-highlight has actually
+   arrived behind the item -- a hard cut, no fade, so text stays coral
+   until the highlight is really there */
+.nav-item.lit {color: var(--cream);}
+
+#cli {font-size: var(--p-size); color: var(--teal);}
 #cli-input {
-    opacity:0; position:absolute;
-    white-space: nowrap;
-    overflow-x: auto;
-}
+    position: absolute;
+    width: 0; height: 0;
+    padding: 0; margin: 0;
+    border: none; outline: none;
+    opacity: 0;}
 
 .cursor {
-    display: inline-block;
-    animation: blink 1s steps(1) infinite;}
-@keyframes blink {50% {opacity: 0;}}
+    color: var(--teal);
+    margin-left: 3px;
+    animation: cli-blink 1s steps(1) infinite;}
+@keyframes cli-blink {50% { opacity: 0; }}
 
-
-.footer {
-    font-size: var(--font-size-small);
-    grid-area: footer;
-    text-align: right;
-    max-height: 1rem;
-    margin-bottom: 5px;
-}
-
-.audio-player-button {
+.accordion-section {
+    margin: 0 0 14px;}
+.accordion-header {
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 50px;
-    aspect-ratio: 1;
-    padding: 5px;
-    border-radius: 0.5rem;
-    background-color: var(--glass-color);
-    box-shadow: -0.1rem 0.2rem 0px 0px var(--box-shadow-color);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.audio-player-button img {
-    width: 40px;
-    aspect-ratio: 1;
-}
-
-#audio-player-share {
-    background-image: url('icons/share.png');
-}
-
-#audio-player-play {
-    background-image: url('icons/play.png');
-}
-
-#creative-buttons {
-    position: sticky;
-    bottom: 5px;
-}
-
-.mobile-only {
-    display: none;
-}
-
-.desktop-only {
-    display: block;
-}
-
-@media (max-width: 600px) {
-    .mobile-only {
-        display: block;
-    }
-    .desktop-only {
-        display: none;
-    }
-}
-
-/**************/
-/* FORMATTING */
-p, h1 {margin: 0; padding: 0;}
-h1 {font-family: var(--font-family-headings);
-    font-size: var(--font-size-medium);}
-
-a {
-    cursor: pointer; 
-    color: var(--cyan);
-    text-decoration: none;
-}
-
-a:not(.imglink):not(.purple-link):hover {
-    color: white;
-    background-color: var(--cyan);
-    text-decoration: none;
-}
-
-.purple-link {
-    color: var(--purple-link-color);
-    text-decoration: none;
-}
-
-.purple-link:hover {
-    color: white;
-    background-color: var(--purple-link-color);
-    text-decoration: none;
-}
-
-button {
-    font-family: var(--font-family-headings);
-    font-size: var(--font-size-medium);
-    border-radius: 0.75rem;
+    gap: 8px;
+    width: 100%;
+    margin: 0;
+    padding: 8px 0;
     border: none;
-    box-shadow: -0.075rem 0.15rem 0px 0.4rem var(--box-shadow-color);
-    z-index: 1;
-    padding: 0.2rem 0.7rem;}
-
-button:hover, .nav div:hover, .imglink img:hover {
-    cursor: pointer;
-    opacity: 0.5;
-}
-
-.buttonli {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin: 14px 0px;
-}
-
-p {
-    font-size: var(--font-size-small);
-}
+    border-bottom: 1px solid var(--ink);
+    background: none;
+    font: inherit;
+    font-family: var(--header-font); 
+    text-align: left;
+    color: var(--ink);
+    cursor: pointer;}
+.accordion-chevron {
+    display: inline-block;
+    width: 12px;
+    flex-shrink: 0;
+    transition: transform 0.15s;}
+.accordion-section.open .accordion-chevron {
+    transform: rotate(90deg);}
+.accordion-icon {
+    width: 18px;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+    background-color: var(--ink);
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;}
+.accordion-body {
+    padding: 6px 0;
+    display: none;}
+.accordion-section.open .accordion-body {
+    display: block;}
 
 .three-col {
-    margin: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-}
+    gap: 16px;
+    margin: 0 0 18px;}
 
-.image-box {
+.gallery {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    gap: 5px;
-}
-
-.imglink img {
-    display: block; 
-    width: 6vw;
-    max-width: 5rem;
-    aspect-ratio: 0.8;
+    gap: 6px;}
+.gallery img {
+    width: 58px;
+    aspect-ratio: 1/1;
     object-fit: cover;
-    object-position: bottom;
-    border-radius: 10px;
-    border: 3px solid black;
-    transition: opacity 0.25s, background-color 0.25s; 
-}
+    border-radius: 6px;
+    border: 2px solid var(--ink);
+    transition: opacity 0.15s ease;}
+.gallery img:hover {opacity: 0.5;}
 
-.imglink {
+/* linktree */
+
+.linktree {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 6vw;
-    max-width: 5rem;
-    aspect-ratio: 0.8;
-    padding: 6px;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 2px;
+    justify-content: center;}
+
+#bottom-linktree {display: none;}
+/* readme has no #left-linktree (flat layout, no #left at all), so its
+   linktree shows at the bottom instead -- parser.js sets data-route */
+body[data-route="readme"] #bottom-linktree {display: flex;}
+#left-linktree {justify-content: flex-end;}
+
+/* matches the min-width:1031px query above -- below that, #leftright's
+   two-column bleed layout no longer fits the viewport, so collapse to a
+   single column instead. #leftright also drops out of grid entirely here:
+   otherwise #right, now the only child, would auto-place into the narrow
+   1fr track (sized for #left) instead of taking the full width. */
+@media (max-width: 1030px) {
+    #bottom-linktree {display: flex;}
+    #left {display: none;}
+    #leftright {display: block;}}
+
+.link-btn {
+    font-family: var(--header-font);
+    font-size: var(--small-size);
+    padding: 1px 6px 2px;
+    border-radius: 6px;
+    border: 2px solid var(--link-color, var(--ink));
+    color: var(--ink);
+    cursor: pointer;
+    transition: background-color 0.15s ease;}
+.link-btn a {color: inherit; text-decoration: none;}
+
+.link-btn:hover {
+    background: color-mix(in srgb, var(--link-color, var(--ink)) 50%, transparent);
 }
 
-/* mobile */
+.link-btn[data-link-label="substack"] { --link-color: var(--c-substack); }
+.link-btn[data-link-label="spotify"] { --link-color: var(--c-spotify); }
+.link-btn[data-link-label="letterboxd"] { --link-color: var(--c-letterboxd); }
+.link-btn[data-link-label="goodreads"] { --link-color: var(--c-goodreads); }
+.link-btn[data-link-label="github"] { --link-color: var(--c-github); }
+.link-btn[data-link-label="resume"] { --link-color: var(--c-resume); }
+.link-btn[data-link-label="instagram"] { --link-color: var(--c-instagram); }
+.link-btn[data-link-label="linkedin"] { --link-color: var(--c-linkedin); }
 
-@media (max-width: 600px) {
-  body {
-    grid-template-areas:
-        "left"
-        "footer";
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr auto;
-    min-width: 0; 
-  }
-
-  #right-half,
-  #welcome-box {
-    display: none;
-  }
-
-  #left-half {
-    max-height: calc(100vh - 70px - 1rem); /* same budget as desktop, just full-width now */
-  }
-
-  .gallery {
-    width: 30%;
-    margin-left: 0.4rem;
-    margin-right: auto; 
-  }
-
-  #next-image-button {
-    height: 54px;
-    width: 12px;
-  }
-}
+@media (max-width: 750px) {
+    :root {--h1-size: 16px; --h2-size: 16px; --p-size: 16px; --small-size: 12px;}
+    .three-col {grid-template-columns: 1fr;}
+    #navbar {justify-content: flex-end; margin-left: 0;}
+    .linktree {justify-content: flex-end;}
+    #copyright {
+        top: auto; bottom: 20px;
+        left: 50%; transform: translateX(calc(-50% + 20px));
+        width: 100%; max-width: 620px;}}

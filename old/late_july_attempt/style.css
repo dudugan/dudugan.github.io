@@ -1,0 +1,452 @@
+/* FONTS */
+
+@font-face {
+    font-family: 'SingleDay';
+    src: url('fonts/SingleDay-Regular.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;}
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('fonts/Roboto_Mono/static/RobotoMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;}
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('fonts/Roboto_Mono/static/RobotoMono-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;}
+@font-face {
+    font-family: 'Cormorant SC';
+    src: url('fonts/Cormorant_SC/CormorantSC-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;}
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;}
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('fonts/Cormorant_Garamond/static/CormorantGaramond-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;}
+@font-face {
+    font-family: 'Kode Mono';
+    src: url('fonts/KodeMono.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;}
+@font-face {
+    font-family: 'RockSalt';
+    src: url('fonts/RockSalt.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;}
+
+:root {
+    --font-family-primary: 'Cormorant Garamond', 'Courier New', Courier, monospace;
+    --font-family-headings: 'SingleDay', 'Comic Sans MS', 'Comic Sans', cursive;
+    --font-family-code: 'Kode Mono', 'Courier New', Courier, monospace;
+
+    /* font sizes */
+    --font-size-small: 13px;
+    --font-size-medium: 16px;
+    --font-size-large: 18px;}
+
+/* COLORS */
+:root {
+    --background-color: #344e41;
+    --box-shadow-color: #b0bc98;
+    --text-color: #dad7cd;
+    --link-color: #a3b18a;
+    --toolbar-buttons-color: white;
+    --accent-color-1: #3a5a40;
+    --accent-color-2: #588157;
+    /* --accent-color-1: #009aad;
+    --accent-color-2: #782cfc; */
+    
+    /* link button colors */
+    /* --turquoise: #76F4D0;
+    --magenta: #FF93BB;
+    --blue: #87D3F5;
+    --yellow: #F5DF8E;
+    --orange: #FEA394;
+    --teal: #79F2F2;
+    --indigo: #93AEF7;
+    --red: #FF9396;
+    --cyan: #009AAD; */
+    --turquoise: #423e28;
+    --magenta: #423e28;
+    --blue: #423e28;
+    --yellow: #423e28;
+    --orange: #423e28;
+    --teal: #423e28;
+    --indigo: #423e28;
+    --red: #423e28;
+    --cyan: #423e28;
+}
+
+/* coloring things */
+.accent-1 {color: var(--accent-color-1);}
+.accent-2 {color: var(--accent-color-2);}
+
+/* PUTTING FONTS AND COLORS ONTO CLASSES */
+html {font-family: var(--font-family-primary);
+    font-size: var(--font-size-small);
+    color: var(--text-color);
+    background-color: var(--background-color);}
+
+h1 {font-family: var(--font-family-headings);
+    font-size: var(--font-size-large);}
+
+a {color: var(--link-color);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-color-2);
+    text-decoration-thickness: 2px;}
+
+a:hover, .copyright p a {color: white;
+    background-color: var(--accent-color-1);
+    text-decoration: none;}
+
+button, .nav-link {font-family: var(--font-family-headings);
+    font-size: var(--font-size-medium);}
+
+.bold {color: var(--accent-color-2);
+    font-weight: 700;}
+
+.copyright {
+    font-size: 0.4em; }
+
+nav {
+    background-color: var(--background-color);}
+
+footer {
+    background-color: var(--background-color);}
+
+/* LAYING THINGS OUT, AND BORDERS */
+
+/* absolute */
+.copyright {
+    position: fixed;
+    left: 20px;
+    top: 15%;
+    transform: rotate(90deg);
+    transform-origin: top left;}
+/* @media (max-width: 700px) {
+    .copyright {
+        bottom: 0px; 
+        left: 5%; 
+        top: auto; 
+        transform: rotate(0deg);}} */
+
+#big-toolbar {
+    display: none;
+    position: fixed;
+    top: 8%;
+    right: 2%;}
+#big-toolbar .tool-btn {width: 32px;}
+@media (max-width: 700px) {
+    #big-toolbar {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;}}
+
+/* boxes */
+body {
+    margin: 0; padding: 0;
+    height: 100vh; width: 100vw;}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    margin: 50px 30vw 40px 20vw;
+    gap: 1rem;
+}
+@media (max-width: 700px) {
+    .layout {
+        margin: 50px 15vw 40px 0vw;}}
+
+#readme-main {
+    margin-left: 50px; 
+    display: flex; 
+    flex-direction: column;}
+
+#photos-and-buttons {
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;}
+#small-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;}
+#small-toolbar .tool-btn {width: 24px;}
+@media (max-width: 700px) {
+    #small-toolbar {
+        display: none;}}
+
+#cli {
+    border-radius: 0.2rem;
+    box-shadow: 0px 0px 0px 0.15rem var(--box-shadow-color);
+    padding: 0.5rem 0.4rem 0.5rem 0.8rem;
+    margin-top: 5vh;
+    margin-bottom: 0.5rem;
+    min-height: 1.5rem; 
+    max-width: calc(100% - 0.5rem);
+    width: auto; 
+    word-break: break-all;}
+#cli-input {
+    opacity:0; position:absolute;
+    white-space: nowrap;
+    overflow-x: auto;}
+.cursor {
+    display: inline-block;
+    animation: blink 1s steps(1) infinite;}
+@keyframes blink {50% {opacity: 0;}}
+
+nav {position: fixed;
+    top: 0px;
+    padding-top: 10px; 
+    padding-bottom: 10px;  
+    /* width: min(calc(100% - 30px), calc(100% - 10vw)); */
+    padding-left: calc((100% - min(calc(100% - 30px), calc(100% - 10vw)))/2);
+    padding-right: calc((100% - min(calc(100% - 30px), calc(100% - 10vw)))/2);
+    left: 50%;
+    transform: translateX(-50%);}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: 0px;
+    padding: 20px 0 20px 0;
+    width: min(calc(100% - 30px), calc(100% - 10vw));
+    left: 50%;
+    transform: translateX(-50%);}
+@media (max-width: 700px) {
+    footer {flex-direction: column;}}
+
+#other-main {
+    margin-left: 0px; 
+    display: flex; 
+    flex-direction: row;}
+#left-sidebar {
+    display: flex; 
+    flex-direction: column;}
+@media (max-width: 700px) {
+    #left-sidebar {
+        display: none;}}
+
+#content-mount {
+    margin-left: 10px; 
+}
+
+.links-mount {
+    display: flex;
+    flex-direction: row;}
+.low-links-mount {
+    display: none;}
+@media (max-width: 700px) {
+    .high-links-mount {
+        display: none;}
+    .low-links-mount {
+        display: flex;
+        flex-direction: row;}}
+
+
+/* TOOLBAR BUTTONS */
+.tool-btn {
+    aspect-ratio: 1/1;
+    border: 2px solid #272e2b;
+    border-radius: 4px;
+    background-color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    cursor: pointer;
+    box-shadow:
+        inset 2px 2px 0 rgba(255, 255, 255, 0.35),
+        inset -2px -2px 0 rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;}
+.tool-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;}
+.tool-btn:hover {
+    box-shadow:
+        inset 1px 1px 0 rgba(0, 0, 0, 0.45),
+        inset -1px -1px 0 rgba(255, 255, 255, 0.2);
+    transform: translate(1px, 1px);}
+/* the music-btn flip is applied via inline style.transform in
+   script.js and is supposed to happen "with no transition" per the
+   original toolbar comment, so it overrides the transition above */
+.music-btn {
+    transition: none;}
+
+
+/* LINK BUTTONS */
+/* new -- script.js's mountLinks() builds .link-btn buttons for the
+   platform links (substack/spotify/etc). the turquoise/magenta/blue/
+   etc. variables already existed in :root but nothing used them; this
+   cycles them the same way the old site's .colorli did. the platform
+   list is 7 items long, and marquee copies double it to 14 for the
+   seamless loop, so :nth-child(7n+k) repeats the same 7-color pattern
+   across both copies instead of just coloring the first 7 and leaving
+   the rest blank. */
+.link-btn {
+    border: 2px solid #272e2b;
+    border-radius: 4px;
+    box-shadow:
+        inset 2px 2px 0 rgba(255, 255, 255, 0.35),
+        inset -2px -2px 0 rgba(0, 0, 0, 0.35);
+    padding: 0.3rem 0.9rem;
+    font-family: var(--font-family-headings);
+    font-size: var(--font-size-small);
+    color: var(--text-color);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* was: spacing came from .marquee-track's flex `gap`, which caused
+       the marquee seam bug (see MARQUEE section above) -- moved here as
+       a per-button trailing margin instead, so every button (including
+       the last one of each doubled marquee copy) carries the exact
+       same spacing */
+    margin-right: 0.7rem;}
+/* the sidebar's high-links-mount grid doesn't need trailing margin on
+   its last button (it wraps in a fixed grid, it's not doubled/looping) */
+.high-links-mount .link-btn:last-child {
+    margin-right: 0;}
+.link-btn:hover {
+    box-shadow:
+        inset 1px 1px 0 rgba(0, 0, 0, 0.45),
+        inset -1px -1px 0 rgba(255, 255, 255, 0.2);
+    transform: translate(1px, 1px);}
+.link-btn:nth-child(7n+1) {background-color: var(--turquoise);}
+.link-btn:nth-child(7n+2) {background-color: var(--magenta);}
+.link-btn:nth-child(7n+3) {background-color: var(--blue);}
+.link-btn:nth-child(7n+4) {background-color: var(--yellow);}
+.link-btn:nth-child(7n+5) {background-color: var(--orange);}
+.link-btn:nth-child(7n+6) {background-color: var(--teal);}
+.link-btn:nth-child(7n+0) {background-color: var(--indigo);}
+/* the sidebar's high-links-mount grid wraps instead of scrolling.
+   was: also had `gap: 0.4rem` here, which combined with .link-btn's
+   new margin-right (above) would double up the spacing between
+   buttons -- removed, margin-right alone is enough since this grid
+   doesn't need the doubled-content seam math the marquee copies do */
+.high-links-mount {
+    flex-wrap: wrap;}
+
+
+/* MARQUEE */
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;}
+.marquee-track {
+    display: inline-block;
+    white-space: nowrap;
+    width: max-content;}
+.marquee-track.marquee-rtl {
+    animation: marquee-rtl 25s linear infinite;}
+.marquee-track.marquee-ltr {
+    animation: marquee-ltr 25s linear infinite;}
+.marquee:hover .marquee-track {
+    animation-play-state: paused;}
+@keyframes marquee-rtl {
+    from {transform: translateX(0);}
+    to {transform: translateX(calc(-100% / var(--marquee-copies, 2)));}}
+@keyframes marquee-ltr {
+    from {transform: translateX(calc(-100% / var(--marquee-copies, 2)));}
+    to {transform: translateX(0);}}
+
+
+/* ACCORDION */
+.accordion-section {
+    border-bottom: 1px solid var(--text-color);
+    padding: 0.6rem 0;}
+.accordion-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    font-family: var(--font-family-headings);
+    font-size: var(--font-size-medium);
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0;}
+.accordion-chevron {
+    font-family: var(--font-family-code);
+    width: 1em;}
+.accordion-icon {
+    display: inline-block;
+    width: 1.1em;
+    height: 1.1em;
+    background-color: var(--text-color);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    flex: 0 0 auto;}
+.accordion-body {
+    display: none;
+    padding: 0.6rem 0 0 1.6rem;}
+.accordion-section.open .accordion-body {
+    display: block;}
+
+
+/* DARK MODE */
+/* new -- theme-btn in script.js toggles html.dark-mode; these override
+   the same variables set in the two :root blocks up top (background,
+   text, link, and the toolbar button background so it doesn't glow
+   white in a dark page), so everything that already reads from those
+   variables re-colors for free. accent-1/accent-2 (cyan/purple) are
+   left as-is -- they read fine on both backgrounds. */
+html {
+    transition: background-color 0.3s, color 0.3s;}
+html.dark-mode {
+    --background-color: #191a15;
+    --text-color: #e8ecdf;
+    --link-color: #b7bfa6;
+    --toolbar-buttons-color: #2a2c23;}
+
+
+/* PHOTO */
+/* new -- #photos never had an <img> sizing rule; the <img> itself was
+   only added to the markup recently (see index.html/other.html) */
+#photos img {
+    display: block;
+    width: 160px;
+    aspect-ratio: 1.5; /*1.85 for portrait*/
+    object-fit: cover;
+    border-radius: 4px;}
+@media (max-width: 700px) {
+    #photos img {
+        width: 100px;}}
+
+
+/* BACKGROUND VIDEO */
+#bg-video {
+    display: none;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;}
+#bg-video.is-visible {
+    display: block;}
+
+
+/* PAGE-READY / FLASH-OF-UNSTYLED-CONTENT GUARD */
+/* new -- content-only pages (research.html etc.) start out as bare
+   unstyled markup until script.js's merge finishes (see
+   mergeContentPage() in script.js); this hides the page until script.js
+   adds .ready to <html> at the end of its init, so that swap isn't
+   visible. index.html/other.html get .ready added too (nothing waits
+   on it there, it's just the same init function), so this doesn't
+   change anything for them beyond a near-instant reveal. */
+html:not(.ready) {
+    visibility: hidden;}

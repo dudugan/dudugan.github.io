@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width,
+        initial-scale=1.0">
+    <title>borderline conscious</title>
+    <link rel="shortcut icon" type="image/png" href="icons/lemur.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="copyright">
+        <p>copyright 2026 david garsten. coded by hand with html,
+            js, and css. <a href="">designed</a> in excalidraw.
+        </p>
+    </div>
+
+    <div class="toolbar-mount" id="big-toolbar"></div>
+
+    <nav class="marquee marquee-rtl" id="nav-mount"></nav>
+
+    <div class="layout">
+
+        <div id="readme-main">
+            <div id="photos-and-buttons">
+                <div id="photos"><img src="images/headshots/siena.jpg"></div>
+                <div class="toolbar-mount" id="small-toolbar"></div>
+            </div>
+            <div id="readme-text">
+                <h1 id="intro-header">Hi! I'm David Garsten.</h1>
+                <p>I'm interested in anything that's
+                    <span class="bold">borderline conscious</span>:
+                    <a href="">animals</a> 
+                    (including <a href="">humans</a>),
+                    <a href="">aliens</a>, 
+                    <a href="">artificial intelligence</a>,
+                    and <a href="">ancient people</a>.
+                </p>
+                <p>I love to <a href="">compose</a> music, 
+                    <a href="">write</a> fiction, and
+                    <a href="">make</a> stuff.
+                    Playing frisbee, cuddling with
+                    <a href="">my dog</a>, <!--make this have some fun screen effect-->
+                    and hanging out with <a href="">my favorite people</a>
+                    makes me happy. 
+                    <a href="">AI makes me scared.</a>
+                </p>
+                <p id="intro-paragraph">Subscribe to <i><a href="">borderline conscious</a></i>
+                    (my newsletter), <i><a href="">backyard biolinguistics</a></i>
+                    (my linguistics blog), or <i><a href="">fried grice</a></i>
+                    (my ai safety blog) to beam me up to your inbox. Or just reach
+                    out at duzugan at gmail dot com!
+                </p>
+            </div>
+            <div id="cli">
+                <span class="accent-2">dudugan:</span><!--
+                -->~#
+                <span id="last-path">\readme_</span>
+                <input id="cli-input"
+                    autocomplete="off"
+                    spellcheck="false"
+                    aria-label="Command line input">
+                <span id="word-mirror"></span>
+                <span class="accent-2 cursor">█</span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="marquee marquee-ltr links-mount"></footer>
+    <!-- was: src="media/tbilisi.mp4" set here directly, so the browser
+    fetched the whole video file on every page load whether the video
+    button was ever clicked or not. now: no src (and preload="none" to
+    say so explicitly) -- script.js sets src the first time video-btn is
+    clicked, so nothing downloads until then. also added `muted`: without
+    it the video was just showing its own poster frame frozen in place
+    instead of actually playing (see script.js's video-btn comment for
+    why) -- some browsers only allow programmatic play() unconditionally
+    when the element is muted, otherwise it can silently refuse. -->
+    <video id="bg-video" poster="media/tbilisi-poster.jpg" preload="none" muted loop playsinline></video>
+    <audio id="bg-audio" src="media/r4.mp3" loop preload="none"></audio>
+    <script src="script.js"></script>
+    <script src="cli.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+        content="width=device-width, 
+        initial-scale=1.0">
+    <title>dudugan</title>
+    <link rel="shortcut icon" type="image/png" href="icons/lemur.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="left-half" class="half">
+
+        <div class="nav" id="nav-left">
+            <div onclick="replaceLeft('read-me')"
+                id="read-me-button">
+                read me</div>
+            <div onclick="replaceLeft('about-me')"
+                class="inactive" id="about-me-button">
+                about me</div>
+            <div onclick="replaceLeft('research')"
+                class="inactive, mobile-only" id="research-button">
+                research</div>
+            <div onclick="replaceLeft('creative')"
+                class="inactive, mobile-only" id="creative-button">
+                creative</div>
+            <div onclick="replaceLeft('affiliations')"
+                class="inactive, mobile-only" id="affiliations-button">
+                affiliations</div>
+            <div onclick="replaceLeft('favorites')"
+                class="inactive, mobile-only" id="favorites-button">
+                favorites</div>
+        </div>
+
+        <div class="box">
+
+            <div class="gallery">
+                <img id="me-img">
+                <div id="next-image-button" onclick="nextImage()">
+                    <p>nextimage</p>
+                </div>
+            </div>
+
+            <div class="content" id="left-content">
+            </div>
+
+            <div id="cli">
+                <span class="cyantext">dudugan:</span><!--
+                -->~# 
+                <span id="last-path">\readme_</span>
+                <input id="cli-input" 
+                    autocomplete="off"
+                    spellcheck="false"
+                    aria-label="Command line input">
+                <span id="word-mirror"></span>
+                <span class="cyantext cursor">█</span> 
+            </div>
+        </div>
+    </div>
+    <div id="right-half" class="half">
+        
+        <div class="nav" id="nav-right">
+
+            <div onclick="replaceRight('research'); 
+            hideCreativeButtons()" class="inactive"
+            id="research-button">
+            \research_</div>
+
+            <div onclick="replaceRight('creative'); 
+            showCreativeButtons()" class="inactive"
+            id="creative-button">\creative_</div>
+
+            <div onclick="replaceRight('affiliations'); 
+            hideCreativeButtons()" class="inactive"
+            id="affiliations-button">\affiliations_</div>
+
+            <div onclick="replaceRight('favorites'); 
+            hideCreativeButtons()" class="inactive"
+            id="favorites-button">\favorites_</div>
+
+        </div>
+
+        <div class="box" id="right-box">
+
+            <div class="content" id="right-content">
+            </div>
+            
+        </div>  
+
+    </div>
+    <div id="welcome-box">
+        <p>press <b>r</b> for research interests,<br>
+            <b>c</b> for creative projects,<br>
+            <b>a</b> for affiliations,<br>
+            or <b>f</b> for favorites.</p>
+            <p>then press enter to GO.</p>
+            <p><br>(this website is still under
+            construction,<br>
+            so please forgive any bugs!)</p>
+            <p class="mobile-only"><br>--currently 
+                not great on mobile devices--</p>
+    </div>
+    <div class="footer">
+        <hr>
+        Copyright 2026 david
+        garsten. coded by hand with 
+        html, js, and css. designed in figma.
+    </div>
+    <script src="js/populator.js"></script>
+    <script src="js/helpers.js"></script>
+    <script src="js/cli.js"></script>
+</body>
+</html>
