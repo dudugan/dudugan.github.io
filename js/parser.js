@@ -128,7 +128,12 @@ class MarkdownParser {
 
         text = text.replace(/\*\*([^*]+?)\*\*/g, '<strong>$1</strong>')
             .replace(/\*([^*]+?)\*/g, '<em>$1</em>')
-            .replace(/\[([^\]]*)\]\(([^)]*)\)/g, '<a href="$2">$1</a>');
+            // external (http/https) links open in a new tab; internal ones
+            // (#hash routes, action:name, #404) navigate/act in-page as
+            // before, so they're left without target
+            .replace(/\[([^\]]*)\]\(([^)]*)\)/g, (_, label, url) => /^https?:\/\//i.test(url)
+                ? `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`
+                : `<a href="${url}">${label}</a>`);
 
         for (const [a, b] of swaps) text = text.split(b).join(a.replace('\\', ''));
         return text;
