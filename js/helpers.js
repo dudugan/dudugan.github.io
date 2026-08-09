@@ -179,20 +179,27 @@ const ACTIONS = {
 // via a research-topic link/cli command below -- scrolls it into view,
 // which reads as the content "shifting up" to reveal it. Closing the last
 // still-open accordion in #right-content reverses that: scrolls back to
-// the top, i.e. "shifts back down". Opening one also closes any others in
-// the same group -- only one section is ever open at a time.
+// the top, i.e. "shifts back down".
+//
+// this scrolls #right-content directly (via its own scrollTop) rather than
+// section.scrollIntoView() -- scrollIntoView walks every scrollable
+// ancestor, including <body>, and body:has(#right){overflow:hidden} above
+// only blocks *user-driven* scrolling of it, not programmatic scrolling.
+// On mobile that let scrollIntoView shove the whole page up (hiding the
+// navbar) with no way to scroll back, since body's overflow:hidden then
+// blocks the user from undoing it.
 function openAccordion(section) {
     if (!section || section.classList.contains('open')) return;
-    const scope = section.closest('.accordion') || document.getElementById('right-content');
-    // mark the new section open FIRST, then close the others -- closeAccordion
-    // checks whether any section is still open to decide whether to scroll
-    // back to the top, and since we're switching (not fully closing), that
-    // reset shouldn't fire here
+    const container = document.getElementById('right-content');
+    const scope = section.closest('.accordion') || container;
     section.classList.add('open');
     scope?.querySelectorAll('.accordion-section.open').forEach((other) => {
         if (other !== section) closeAccordion(other);
     });
-    section.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    if (container) {
+        const delta = section.getBoundingClientRect().top - container.getBoundingClientRect().top;
+        container.scrollTo({ top: container.scrollTop + delta, behavior: 'smooth' });
+    }
 }
 function closeAccordion(section) {
     if (!section || !section.classList.contains('open')) return;
