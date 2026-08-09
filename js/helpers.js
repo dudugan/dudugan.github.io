@@ -125,15 +125,32 @@ const ACTIONS = {
                 video.muted = false;
                 // loop isn't set -- 'ended' below drives a manual reverse
                 // playback instead, for a forward/back bounce loop.
+                //
+                // this video is 4K with ~2s between keyframes, so seeking to
+                // an arbitrary (non-keyframe) timestamp is genuinely
+                // expensive -- the browser has to decode forward from the
+                // nearest prior keyframe every time. Requesting a new seek
+                // every requestAnimationFrame (~60/sec) queued up far more
+                // seeks than the decoder could ever keep up with, so it
+                // looked frozen for several seconds while a backlog of stale
+                // seeks worked through, then jumped once it caught up.
+                // Chaining each step off the previous one's 'seeked' event
+                // instead paces this to whatever rate the decoder can
+                // actually sustain -- still stepping continuously backward,
+                // just without racing ahead of it.
                 document.body.prepend(video);
                 video.addEventListener('ended', () => {
                     video.pause();
-                    requestAnimationFrame(function stepBack() {
-                        if (!videoOn) return;
-                        video.currentTime = Math.max(0, video.currentTime - 1 / 30);
-                        if (video.currentTime <= 0) { video.play().catch(() => {}); return; }
-                        requestAnimationFrame(stepBack);
-                    });
+                    const onSeeked = () => {
+                        if (!videoOn || video.currentTime <= 0) {
+                            video.removeEventListener('seeked', onSeeked);
+                            if (videoOn) video.play().catch(() => {});
+                            return;
+                        }
+                        video.currentTime = Math.max(0, video.currentTime - 1 / 10);
+                    };
+                    video.addEventListener('seeked', onSeeked);
+                    video.currentTime = Math.max(0, video.currentTime - 1 / 10);
                 });
             }
             video.play().catch(() => {});
@@ -162,10 +179,19 @@ const ACTIONS = {
 // via a research-topic link/cli command below -- scrolls it into view,
 // which reads as the content "shifting up" to reveal it. Closing the last
 // still-open accordion in #right-content reverses that: scrolls back to
-// the top, i.e. "shifts back down".
+// the top, i.e. "shifts back down". Opening one also closes any others in
+// the same group -- only one section is ever open at a time.
 function openAccordion(section) {
     if (!section || section.classList.contains('open')) return;
+    const scope = section.closest('.accordion') || document.getElementById('right-content');
+    // mark the new section open FIRST, then close the others -- closeAccordion
+    // checks whether any section is still open to decide whether to scroll
+    // back to the top, and since we're switching (not fully closing), that
+    // reset shouldn't fire here
     section.classList.add('open');
+    scope?.querySelectorAll('.accordion-section.open').forEach((other) => {
+        if (other !== section) closeAccordion(other);
+    });
     section.scrollIntoView({ block: 'start', behavior: 'smooth' });
 }
 function closeAccordion(section) {
@@ -305,6 +331,15 @@ function syncRightHeight() {
     }
     const cli = document.getElementById('cli');
     const cap = parseFloat(right.style.maxHeight) || Infinity;
+    // #right-content is flex:1 -- if #right's height is currently larger
+    // than needed (e.g. from an accordion that's since been closed),
+    // #right-content is still stretched to fill that leftover space, and
+    // scrollHeight reports max(that stretched size, real content size) --
+    // i.e. it just echoes the stale larger size back and never reveals
+    // that the content shrank. Clearing the height first lets
+    // #right-content collapse to its true content-based size before
+    // measuring, so shrinking works the same as growing does.
+    right.style.height = '';
     const desired = Math.min(cap, content.scrollHeight + (cli ? cli.offsetHeight : 0));
     right.style.height = desired + 'px';
 }

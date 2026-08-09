@@ -347,17 +347,23 @@ p a:hover {color: white; background: var(--purple);}
 
 #bottom-linktree {display: none;}
 /* readme has no #left-linktree (flat layout, no #left at all), so its
-   linktree shows at the bottom instead -- parser.js sets data-route */
+   linktree shows at the bottom instead -- parser.js sets data-route.
+   right-aligned (wraps go right) same as #left-linktree, on every
+   viewport size -- not just the mobile query below, which used to be
+   the only place this got set */
 body[data-route="readme"] #bottom-linktree {display: flex;}
-#left-linktree {justify-content: flex-end;}
+#left-linktree, #bottom-linktree {justify-content: flex-end;}
 
 /* matches the min-width:1031px query above -- below that, #leftright's
    two-column bleed layout no longer fits the viewport, so collapse to a
    single column instead. #leftright also drops out of grid entirely here:
    otherwise #right, now the only child, would auto-place into the narrow
-   1fr track (sized for #left) instead of taking the full width. */
+   1fr track (sized for #left) instead of taking the full width.
+   #bottom-linktree is deliberately NOT force-shown here -- it should only
+   ever appear on readme (body[data-route="readme"] above already covers
+   that at any width), not as a stand-in for #left-linktree on other
+   routes just because #left got hidden. */
 @media (max-width: 1030px) {
-    #bottom-linktree {display: flex;}
     #left {display: none;}
     #leftright {display: block;}}
 
