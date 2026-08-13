@@ -53,7 +53,7 @@ My research on the communication systems of non-human animals also has potential
 
 [My AI Safety One-Pager](https://docs.google.com/document/d/1sDzVc2Zd6LRwlyMfJ2L9NR2dJga6oql_bSXncEbJPFY/edit?usp=sharing). 
 
-[My AI Safety Substack](https://https://friedgrice.substack.com/). 
+[My AI Safety Substack](https://friedgrice.substack.com/). 
 
 I think misaligned AI is the greatest extinction threat humanity has faced. I believe true alignment is impossible (where we get AI systems to align perfectly with our goals), and superintelligent systems will ultimately be able to escape our boxes. We need to find ways to make AI systems safe despite this fact. 
 
