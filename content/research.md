@@ -38,12 +38,12 @@ Many cetacean species (e.g. dolphins) and bird species (e.g. parrots) have both 
 
 Yet their communication systems remain poorly understood, apart from "naming" calls which identify particular individuals, and typically-innate warning calls. Is the rest just purely sexual signalling, or is there some other meaning behind it? To what extent do these communication systems have compositional structure? How are they represented in the brain? How did they evolve?
 
-Learning about the communication systems of other species is valuable for (1) potentially creating 'doolittle devices', which will allow us to translate in real-time, to the best of our ability, the vocalizations of various species, and (2) understanding the evolution and representation of learned communication in general - and how and why we as humans might have evolved it. 
+Learning about the communication systems of other species is valuable for (1) potentially creating 'doolittle devices', which will allow us to translate in real-time, as much as they can be translated, the vocalizations of various species, and (2) understanding the evolution and representation of learned communication in general - and how and why we as humans might have evolved it. 
 
 </accordion>
 
 <accordion icon="media/icons/accordion/aliens.svg" title="ALIENS">
-So, I haven't done much research on aliens yet. But in the event of contact, we need to have a really good plan for how we're going to communicate with other sentient species. It's *not* enough to just throw a linguist in a room with them and see how things work out, as popular movies might have you believe. (But hey! If this does happen you know who to call :)
+So, I haven't done much research on aliens yet. But in the event of contact, we need to have a really good plan for how we're going to communicate with other sentient species. It's not enough to just throw a linguist in a room with them and see how things work out, as popular movies might have you believe.
 
 My research on the communication systems of non-human animals also has potential impact here - the first steps we might turn to upon encountering an alien communication system (e.g. radio signals) would likely be computational analysis of small samples. 
 
@@ -55,20 +55,20 @@ My research on the communication systems of non-human animals also has potential
 
 [My AI Safety Substack](https://friedgrice.substack.com/). 
 
-I think misaligned AI is the greatest extinction threat humanity has faced. I believe true alignment is impossible (where we get AI systems to align perfectly with our goals), and superintelligent systems will ultimately be able to escape our boxes. We need to find ways to make AI systems safe despite this fact. 
+I think misaligned AI is the greatest extinction threat humanity has faced. True alignment is impossible (where we get AI systems to align perfectly with our goals), and superintelligent systems will ultimately be able to escape our boxes. We need to find ways to make AI systems safe despite this fact. 
 
-I'm currently interested in **corrigibility** (making AI systems as un-agentic as possible) as a strategy for this. I'm also interested in using findings and techniques from **control** protocols (which attempt to contain even misaligned AI) to inform **interpretability** work (reading models' black boxes). I also want to contribute to control and interpretability as safeguards for powerful-but-not-yet-superintelligent AI so that we can use it to figure out how to align superintelligence when it comes. 
+I'm currently interested in **corrigibility** (making AI systems as un-agentic as possible) as a strategy for this. I'm also interested in using findings and techniques from **control** protocols (which attempt to contain even misaligned AI) to inform **interpretability** work (reading models' black boxes). Finally, I'm interested in using tools from evolutionary theory to model the **dynamics of reinforcement learning**, to better understand how misalignment arises during both pretraining and post-training. 
 
-I'm only just starting to gain technical skills in AI safety. I participated in the BlueDot Intensive Technical AI Safety Course in early August, and am currently applying to SPAR. I'm planning on spending August doing small research projects. 
+I'm only just starting to gain technical skills in AI safety. I participated in the BlueDot Intensive Technical AI Safety Course in early August, and will hopefully be joining a SPAR project in the fall. I'm planning on spending August doing small research projects. 
 
 </accordion>
 
 <accordion icon="media/icons/accordion/ancient-people.svg" title="ANCIENT PEOPLE">
-If you've read through the sections above, you'll know I'm interested in the evolution of language. Many people think that the evolution of language is deeply related to the evolution of human consciousness, and this is not a small part of why I'm interested in language in the first place. 
+If you've read through the sections above, you might guess that I'm interested in the evolution of language. Many people think that the evolution of language is deeply related to the evolution of human consciousness, and this is not a small part of why I'm interested in language in the first place. 
 
 I haven't done much independent research in this area yet, but I've done a lot of reading, and I took *Culture and Human Evolution* with Gary Tomlinson last spring. 
 
-Paleoanthropology is quite an exciting field, because groundbreaking findings are coming out every year - either new fossils or artifacts are discovered, or new parts of hominin genomes are mapped and explored. Because of this, scientific consensus on the evolution of humanity has changed significantly since 2000. The current consensus is that the humans did not gain most of our unique traits all at once in some great leap forward, as was previously believed by many, but instead over the course of ~250 thousand years, distributed over many places in Eastern and Sub-Saharan Africa. 
+Paleoanthropology is quite an exciting field, because groundbreaking findings are coming out every year - either new fossils or artifacts are discovered, or new parts of hominin genomes are mapped and explored. Because of this, scientific consensus on the evolution of humanity has changed significantly since 2000. The current consensus is that the humans did not gain most of our unique traits all at once in some great leap forward, but instead over the course of ~250 thousand years, distributed over many places in Eastern and Sub-Saharan Africa. 
 
 This 'mosaic' pattern of cultural and technological modernity has not really been taken seriously by most linguists working on the evolution of language. But there are good reasons to think that the (newly-evolved) cognitive apparatus underlyingly our linguistic capacity is very small (i.e. just the Minimalist Program's *Merge* operation). The central dilemma is the following. Because the narrow language faculty is so small, it is more easy to imagine the evolution of this faculty (from a birdsong or primate-call precusor) proceeding very fast. Yet if the evolution of language was fast, and it occurred before the mosaic, why did the mosaic happen at all - why wasn't it all just one fast swoop? If the evolution of language was fast, and it occurred after the mosaic, what enabled us to make all those advances, and why language evolve if we didn't need it for those things? The last possibility of course is that the evolution of language from a birdsong or primate-call precusor *was* slow. The question then becomes how we can square that with Minimalism, and cross-linguistic similarities more generally. 
 
