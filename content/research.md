@@ -53,11 +53,13 @@ My research on the communication systems of non-human animals also has potential
 
 [My AI Safety One-Pager](https://docs.google.com/document/d/1sDzVc2Zd6LRwlyMfJ2L9NR2dJga6oql_bSXncEbJPFY/edit?usp=sharing). 
 
-[My AI Safety Substack](https://friedgrice.substack.com/). 
+[My AI Safety Substack](https://https://friedgrice.substack.com/). 
+
+*News:* I'm a current SPAR research fellow! I'm working on investigating collusion strategies in untrusted monitoring, mentored by Morgan Sinclaire. 
 
 I think misaligned AI is the greatest extinction threat humanity has faced. True alignment is impossible (where we get AI systems to align perfectly with our goals), and superintelligent systems will ultimately be able to escape our boxes. We need to find ways to make AI systems safe despite this fact. 
 
-I'm currently interested in **corrigibility** (making AI systems as un-agentic as possible) as a strategy for this. I'm also interested in using findings and techniques from **control** protocols (which attempt to contain even misaligned AI) to inform **interpretability** work (reading models' black boxes). Finally, I'm interested in using tools from evolutionary theory to model the **dynamics of reinforcement learning**, to better understand how misalignment arises during both pretraining and post-training. 
+I am currently interested in using **alternative RL techniques** to avoid misalignment basins, and findings and techniques from **control** protocols to inform relevant **interpretability** work, especially work focusing on **multi-agent** interactions. I also want to bolster control and interpretability as safeguards so that we can survive until superintelligence and use powerful-but-not-yet-superintelligent models to help us figure out how to align superintelligence when it comes. 
 
 I'm only just starting to gain technical skills in AI safety. I participated in the BlueDot Intensive Technical AI Safety Course in early August, and will hopefully be joining a SPAR project in the fall. I'm planning on spending August doing small research projects. 
 
